@@ -10,7 +10,7 @@
  * @see lithium\net\http\Router
  * @see lithium\net\http\Route
  */
-use lithium\net\http\Router;
+use li3_rest\net\http\Router;
 use lithium\core\Environment;
 
 /**
@@ -40,20 +40,18 @@ if (!Environment::is('production')) {
 	Router::connect('/test', array('controller' => 'lithium\test\Controller'));
 }
 
-Router::connect('/{:controller}/{:action}/{:id:[0-9a-f]{24}}.{:type}', array('id' => null));
-Router::connect('/{:controller}/{:action}/{:id:[0-9a-f]{24}}');
+/**
+ * Handling API output formats.
+ */
+Router::connect('/{:args}.{:type:json}', array(), array('continue' => true));
 
 /**
- * Finally, connect the default route. This route acts as a catch-all, intercepting requests in the
- * following forms:
- *
- * - `/foo/bar`: Routes to `FooController::bar()` with no parameters passed.
- * - `/foo/bar/param1/param2`: Routes to `FooController::bar('param1, 'param2')`.
- * - `/foo`: Routes to `FooController::index()`, since `'index'` is assumed to be the action if none
- *   is otherwise specified.
- *
- * In almost all cases, custom routes should be added above this one, since route-matching works in
- * a top-down fashion.
+ * Projects routes
+ */
+Router::resource('Projects');
+
+/**
+ * Catch-all route
  */
 Router::connect('/{:controller}/{:action}/{:args}');
 
