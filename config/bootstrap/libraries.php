@@ -117,6 +117,8 @@ Libraries::add('lithium');
  */
 Libraries::add('dad', array('default' => true));
 
+Libraries::add('li3_rest');
+
 Libraries::add('li3_server');
 Libraries::add('li3_quality');
 

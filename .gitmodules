@@ -7,3 +7,6 @@
 [submodule "libraries/li3_server"]
 	path = libraries/li3_server
 	url = git://github.com/daschl/li3_server.git
+[submodule "libraries/li3_rest"]
+	path = libraries/li3_rest
+	url = git://github.com/mehlah/li3_rest.git
