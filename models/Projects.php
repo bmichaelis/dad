@@ -2,7 +2,7 @@
 
 namespace dad\models;
 
-class Projects extends \lithium\data\Model {
+class Projects extends \dad\extensions\data\BaseModel {
 
 	protected $_schema = array(
 		'_id'          => array('type' => 'id'),
