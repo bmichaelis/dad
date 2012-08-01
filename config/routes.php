@@ -59,9 +59,4 @@ Router::connect('/projects/{:project_id}/discussions', ['Discussions::create', '
 Router::connect('/projects/{:project_id}/discussions/{:id}', ['Discussions::update', 'http:method' => 'PUT']);
 Router::connect('/projects/{:project_id}/discussions/{:id}', ['Discussions::delete', 'http:method' => 'DELETE']);
 
-/**
- * Catch-all route
- */
-Router::connect('/{:controller}/{:action}/{:args}');
-
 ?>
