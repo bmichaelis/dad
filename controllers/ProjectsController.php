@@ -4,12 +4,7 @@ namespace dad\controllers;
 
 use dad\models\Projects;
 
-class ProjectsController extends \lithium\action\Controller {
-
-	protected function _init() {
-		$this->_render['negotiate'] = true;
-		parent::_init();
-	}
+class ProjectsController extends \dad\extensions\action\BaseController {
 
 	/**
 	 * List projects

@@ -4,12 +4,7 @@ namespace dad\controllers;
 
 use dad\models\Discussions;
 
-class DiscussionsController extends \lithium\action\Controller {
-
-	protected function _init() {
-		$this->_render['negotiate'] = true;
-		parent::_init();
-	}
+class DiscussionsController extends \dad\extensions\action\BaseController {
 
 	/**
 	 * List discussions
