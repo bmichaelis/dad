@@ -50,7 +50,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 	 * with the `Location` header set to the URL of the newly-created project.
 	 */
 	public function create() {
-		$project = Projects::create($this->project_attrs());
+		$project = Projects::create($this->project_data());
 
 		if ($project->save()) {
 			return $this->redirect('/projects/' . $project->_id, ['status' => 201]);
@@ -85,7 +85,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 	public function update() {
 		$project = Projects::find($this->request->id);
 
-		if ($project->save($this->project_attrs())) {
+		if ($project->save($this->project_data())) {
 			return $this->redirect('/projects/' . $project->_id);
 		} else {
 			$this->_render['template'] = 'edit';
@@ -115,7 +115,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 	/**
 	 * Encapsulate the permissible attributes of a project
 	 */
-	private function project_attrs() {
+	private function project_data() {
 		return array_intersect_key($this->request->data, array_flip(['name', 'description']));
 	}
 }
