@@ -105,7 +105,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 		];
 		$discussion = Discussions::first(compact('conditions'));
 
-		if (!empty($this->request->data) && $discussion->save($this->request->data)) {
+		if ($discussion->save($this->discussion_data())) {
 			return $this->redirect('/projects/' . $this->request->project_id . '/discussions/' . $discussion->_id);
 		} else {
 			$this->_render['template'] = 'edit';
