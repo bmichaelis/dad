@@ -2,6 +2,8 @@
 
 namespace dad\models;
 
+use dad\models\Discussions;
+
 class Projects extends \dad\extensions\data\BaseModel {
 
 	protected $_schema = array(
@@ -17,6 +19,17 @@ class Projects extends \dad\extensions\data\BaseModel {
 	);
 
 	public $validates = array();
+
+	public function discussions($entity, array $options = array()) {
+		$defaults =  ['project_id' => (string) $entity->_id];
+		$conditions = $options += $defaults;
+
+		if (!empty($entity->discussions)) {
+			return $entity->discussions;
+		}
+
+		return $entity->discussions = Discussions::all(compact('conditions'));
+	}
 }
 
 ?>

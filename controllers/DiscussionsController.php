@@ -3,6 +3,7 @@
 namespace dad\controllers;
 
 use dad\models\Discussions;
+use dad\models\Projects;
 
 class DiscussionsController extends \dad\extensions\action\BaseController {
 
@@ -55,7 +56,13 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 * with the `Location` header set to the URL of the newly-created discussion.
 	 */
 	public function create() {
-		$discussion = Discussions::create($this->request->data);
+		$project = Projects::find($this->request->project_id);
+
+		if (!$project) {
+			return $this->redirect('/projects');
+		}
+
+		$discussion = Discussions::create($this->discussion_data());
 
 		if ($discussion->save()) {
 			return $this->redirect('/projects/' . $this->request->project_id . '/discussions/' . $discussion->_id, ['status' => 201]);
@@ -127,6 +134,14 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 		}
 
 		return $this->render(['head' => true, 'status' => 400]);
+	}
+
+	/**
+	 * Encapsulate the permissible attributes of a discussion
+	 */
+	private function discussion_data() {
+		$data = array_intersect_key($this->request->data, array_flip(['subject', 'content']));
+		return $data + ['project_id' => $this->request->project_id];
 	}
 }
 

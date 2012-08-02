@@ -53,10 +53,13 @@ Router::resource('Projects');
 /**
  * Disucssions routes
  */
-Router::connect('/projects/{:project_id}/discussions', ['Discussions::index', 'http:method' => 'GET']);
-Router::connect('/projects/{:project_id}/discussions/{:id}', ['Discussions::show', 'http:method' => 'GET']);
-Router::connect('/projects/{:project_id}/discussions', ['Discussions::create', 'http:method' => 'POST']);
-Router::connect('/projects/{:project_id}/discussions/{:id}', ['Discussions::update', 'http:method' => 'PUT']);
-Router::connect('/projects/{:project_id}/discussions/{:id}', ['Discussions::delete', 'http:method' => 'DELETE']);
+
+Router::connect('/projects/{:project_id}/{:args}', array(), array('continue' => true));
+
+Router::connect('/discussions', ['Discussions::index', 'http:method' => 'GET']);
+Router::connect('/discussions/{:id}', ['Discussions::show', 'http:method' => 'GET']);
+Router::connect('/discussions', ['Discussions::create', 'http:method' => 'POST']);
+Router::connect('/discussions/{:id}', ['Discussions::update', 'http:method' => 'PUT']);
+Router::connect('/discussions/{:id}', ['Discussions::delete', 'http:method' => 'DELETE']);
 
 ?>

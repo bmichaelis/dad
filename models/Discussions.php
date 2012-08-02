@@ -6,6 +6,7 @@ class Discussions extends \dad\extensions\data\BaseModel {
 
 	protected $_schema = array(
 		'_id'          => array('type' => 'id'),
+		'project_id'   => array('type' => 'string'),
 		'subject'      => array('type' => 'string'),
 		'content'      => array('type' => 'string'),
 		'creator'      => array('type' => 'object'),

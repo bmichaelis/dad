@@ -30,7 +30,9 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 			return $this->redirect('/projects');
 		}
 
-		return compact('project');
+		$discussions = $project->discussions();
+
+		return compact('project', 'discussions');
 	}
 
 	/**
