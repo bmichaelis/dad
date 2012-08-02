@@ -54,12 +54,14 @@ Router::resource('Projects');
  * Disucssions routes
  */
 
-Router::connect('/projects/{:project_id}/{:args}', array(), array('continue' => true));
+Router::connect('/projects/{:project_id:[0-9a-f]{24}}/{:args}', array(), array('continue' => true));
 
-Router::connect('/discussions', ['Discussions::index', 'http:method' => 'GET']);
-Router::connect('/discussions/{:id}', ['Discussions::show', 'http:method' => 'GET']);
-Router::connect('/discussions', ['Discussions::create', 'http:method' => 'POST']);
-Router::connect('/discussions/{:id}', ['Discussions::update', 'http:method' => 'PUT']);
-Router::connect('/discussions/{:id}', ['Discussions::delete', 'http:method' => 'DELETE']);
+Router::connect('/discussions'                         , ['Discussions::index'  , 'http:method' => 'GET']);
+Router::connect('/discussions/{:id:[0-9a-f]{24}}'      , ['Discussions::show'   , 'http:method' => 'GET']);
+Router::connect('/discussions/add'                     , ['Discussions::add'    , 'http:method' => 'GET']);
+Router::connect('/discussions'                         , ['Discussions::create' , 'http:method' => 'POST']);
+Router::connect('/discussions/{:id:[0-9a-f]{24}}/edit' , ['Discussions::edit'   , 'http:method' => 'GET']);
+Router::connect('/discussions/{:id:[0-9a-f]{24}}'      , ['Discussions::update' , 'http:method' => 'PUT']);
+Router::connect('/discussions/{:id:[0-9a-f]{24}}'      , ['Discussions::delete' , 'http:method' => 'DELETE']);
 
 ?>

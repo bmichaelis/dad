@@ -7,6 +7,21 @@ use dad\models\Projects;
 
 class DiscussionsController extends \dad\extensions\action\BaseController {
 
+	protected function _init() {
+		parent::_init();
+		$this->applyFilter('__invoke', function($self, $params, $chain){
+			$project = Projects::find($self->request->project_id);
+
+			if (!$project) {
+				$self->redirect('/projects');
+			}
+
+			$self->set(compact('project'));
+
+			return $chain->next($self, $params, $chain);
+		});
+	}
+
 	/**
 	 * List discussions
 	 *
@@ -16,6 +31,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	public function index() {
 		$conditions = ['project_id' => $this->request->project_id];
 		$discussions = Discussions::all(compact('conditions'));
+
 		return compact('discussions');
 	}
 
@@ -56,12 +72,6 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 * with the `Location` header set to the URL of the newly-created discussion.
 	 */
 	public function create() {
-		$project = Projects::find($this->request->project_id);
-
-		if (!$project) {
-			return $this->redirect('/projects');
-		}
-
 		$discussion = Discussions::create($this->discussion_data());
 
 		if ($discussion->save()) {
