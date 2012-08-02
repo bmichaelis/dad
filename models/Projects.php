@@ -24,11 +24,7 @@ class Projects extends \dad\extensions\data\BaseModel {
 		$defaults =  ['project_id' => (string) $entity->_id];
 		$conditions = $options += $defaults;
 
-		if (!empty($entity->discussions)) {
-			return $entity->discussions;
-		}
-
-		return $entity->discussions = Discussions::all(compact('conditions'));
+		return Discussions::all(compact('conditions'));
 	}
 }
 
