@@ -50,18 +50,28 @@ Router::connect('/{:args}.{:type:json}', array(), array('continue' => true));
  */
 Router::resource('Projects');
 
+$project_path = '/projects/{:project_id:[0-9a-f]{24}}';
+
 /**
  * Disucssions routes
  */
+Router::connect($project_path . '/discussions'                         , ['Discussions::index'  , 'http:method' => 'GET']);
+Router::connect($project_path . '/discussions/{:id:[0-9a-f]{24}}'      , ['Discussions::show'   , 'http:method' => 'GET']);
+Router::connect($project_path . '/discussions/add'                     , ['Discussions::add'    , 'http:method' => 'GET']);
+Router::connect($project_path . '/discussions'                         , ['Discussions::create' , 'http:method' => 'POST']);
+Router::connect($project_path . '/discussions/{:id:[0-9a-f]{24}}/edit' , ['Discussions::edit'   , 'http:method' => 'GET']);
+Router::connect($project_path . '/discussions/{:id:[0-9a-f]{24}}'      , ['Discussions::update' , 'http:method' => 'PUT']);
+Router::connect($project_path . '/discussions/{:id:[0-9a-f]{24}}'      , ['Discussions::delete' , 'http:method' => 'DELETE']);
 
-Router::connect('/projects/{:project_id:[0-9a-f]{24}}/{:args}', array(), array('continue' => true));
+$discussions_path = $project_path . '/discussions/{:discussion_id:[0-9a-f]{24}}';
 
-Router::connect('/discussions'                         , ['Discussions::index'  , 'http:method' => 'GET']);
-Router::connect('/discussions/{:id:[0-9a-f]{24}}'      , ['Discussions::show'   , 'http:method' => 'GET']);
-Router::connect('/discussions/add'                     , ['Discussions::add'    , 'http:method' => 'GET']);
-Router::connect('/discussions'                         , ['Discussions::create' , 'http:method' => 'POST']);
-Router::connect('/discussions/{:id:[0-9a-f]{24}}/edit' , ['Discussions::edit'   , 'http:method' => 'GET']);
-Router::connect('/discussions/{:id:[0-9a-f]{24}}'      , ['Discussions::update' , 'http:method' => 'PUT']);
-Router::connect('/discussions/{:id:[0-9a-f]{24}}'      , ['Discussions::delete' , 'http:method' => 'DELETE']);
+/**
+* Messages routes
+*/
+Router::connect($discussions_path . '/messages/add'        , ['Messages::add'    , 'http:method' => 'GET']);
+Router::connect($discussions_path . '/messages'            , ['Messages::create' , 'http:method' => 'POST']);
+Router::connect($discussions_path . '/messages/{:id}/edit' , ['Messages::edit'   , 'http:method' => 'GET']);
+Router::connect($discussions_path . '/messages/{:id}'      , ['Messages::update' , 'http:method' => 'PUT']);
+Router::connect($discussions_path . '/messages/{:id}'      , ['Messages::delete' , 'http:method' => 'DELETE']);
 
 ?>
