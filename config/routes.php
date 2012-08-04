@@ -46,6 +46,11 @@ if (!Environment::is('production')) {
 Router::connect('/{:args}.{:type:json}', array(), array('continue' => true));
 
 /**
+ * People routes
+ */
+Router::resource('People');
+
+/**
  * Projects routes
  */
 Router::resource('Projects');
