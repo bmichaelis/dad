@@ -27,7 +27,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 		$project = Projects::find($this->request->id);
 
 		if (!$project) {
-			return $this->redirect('/projects');
+			return $this->redirect('Projects::index');
 		}
 
 		$discussions = $project->discussions();
@@ -55,7 +55,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 		$project = Projects::create($this->project_data());
 
 		if ($project->save()) {
-			return $this->redirect('/projects/' . $project->_id, ['status' => 201]);
+			return $this->redirect(['Projects::show' , 'id' => $project->_id]);
 		} else {
 			$this->_render['template'] = 'add';
 		}
@@ -70,7 +70,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 		$project = Projects::find($this->request->id);
 
 		if (!$project) {
-			return $this->redirect('/projects');
+			return $this->redirect('Projects::index');
 		}
 
 		return compact('project');
@@ -88,7 +88,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 		$project = Projects::find($this->request->id);
 
 		if ($project->save($this->project_data())) {
-			return $this->redirect('/projects/' . $project->_id);
+			return $this->redirect(['Projects::show' , 'id' => $project->_id]);
 		} else {
 			$this->_render['template'] = 'edit';
 		}

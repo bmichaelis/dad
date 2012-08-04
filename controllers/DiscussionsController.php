@@ -13,7 +13,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 			$project = Projects::find($self->request->project_id);
 
 			if (!$project) {
-				$self->redirect('/projects');
+				$self->redirect('Projects::index');
 			}
 
 			$self->set(compact('project'));
@@ -49,7 +49,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 		$discussion = Discussions::first(compact('conditions'));
 
 		if (!$discussion) {
-			return $this->redirect('/discussions');
+			return $this->redirect(['Discussions::index', 'project_id' => $this->request->project_id]);
 		}
 
 		return compact('discussion');
@@ -75,7 +75,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 		$discussion = Discussions::create($this->discussion_data());
 
 		if ($discussion->save()) {
-			return $this->redirect('/projects/' . $this->request->project_id . '/discussions/' . $discussion->_id, ['status' => 201]);
+			return $this->redirect(['Discussions::show', 'id' => $discussion->_id, 'project_id' => $this->request->project_id]);
 		} else {
 			$this->_render['template'] = 'add';
 		}
@@ -94,7 +94,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 		$discussion = Discussions::first(compact('conditions'));
 
 		if (!$discussion) {
-			return $this->redirect('/projects/' . $this->request->project_id . '/discussions');
+			return $this->redirect(['Discussions::index', 'project_id' => $this->request->project_id]);
 		}
 
 		return compact('discussion');
@@ -116,7 +116,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 		$discussion = Discussions::first(compact('conditions'));
 
 		if ($discussion->save($this->discussion_data())) {
-			return $this->redirect('/projects/' . $this->request->project_id . '/discussions/' . $discussion->_id);
+			return $this->redirect(['Discussions::show', 'id' => $discussion->_id, 'project_id' => $this->request->project_id]);
 		} else {
 			$this->_render['template'] = 'edit';
 		}
