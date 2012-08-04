@@ -4,6 +4,7 @@ namespace dad\controllers;
 
 use dad\models\Discussions;
 use dad\models\Projects;
+use lithium\action\DispatchException;
 
 class DiscussionsController extends \dad\extensions\action\BaseController {
 
@@ -13,7 +14,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 			$project = Projects::find($self->request->project_id);
 
 			if (!$project) {
-				$self->redirect('Projects::index');
+				throw new DispatchException();
 			}
 
 			$self->set(compact('project'));

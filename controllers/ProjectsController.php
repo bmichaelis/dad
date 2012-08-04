@@ -27,7 +27,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 		$project = Projects::find($this->request->id);
 
 		if (!$project) {
-			return $this->redirect('Projects::index');
+			return $this->redirect(['Projects::index', 'http:method' => 'GET']);
 		}
 
 		$discussions = $project->discussions();
@@ -70,7 +70,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 		$project = Projects::find($this->request->id);
 
 		if (!$project) {
-			return $this->redirect('Projects::index');
+			return $this->redirect(['Projects::index', 'http:method' => 'GET']);
 		}
 
 		return compact('project');
