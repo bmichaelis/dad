@@ -64,7 +64,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 	}
 
 	/**
-	 * - `GET /projects/edit`
+	 * - `GET /projects/1/edit`
 	 */
 	public function edit() {
 		$project = Projects::find($this->request->id);
