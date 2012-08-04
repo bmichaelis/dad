@@ -6,20 +6,20 @@ use lithium\util\String;
 
 class Discussions extends \dad\extensions\data\BaseModel {
 
-	protected $_schema = array(
-		'_id'          => array('type' => 'id'),
-		'project_id'   => array('type' => 'string'),
-		'subject'      => array('type' => 'string'),
-		'content'      => array('type' => 'string'),
-		'creator'      => array('type' => 'object'),
-		'creator.id'   => array('type' => 'string'),
-		'creator.name' => array('type' => 'string'),
-		'messages'     => array('type' => 'object', 'array' => true),
-		'created_at'   => array('type' => 'date'),
-		'updated_at'   => array('type' => 'date')
-	);
+	protected $_schema = [
+		'_id'          => ['type' => 'id'],
+		'project_id'   => ['type' => 'string'],
+		'subject'      => ['type' => 'string'],
+		'content'      => ['type' => 'string'],
+		'creator'      => ['type' => 'object'],
+		'creator.id'   => ['type' => 'string'],
+		'creator.name' => ['type' => 'string'],
+		'messages'     => ['type' => 'object', 'array' => true],
+		'created_at'   => ['type' => 'date'],
+		'updated_at'   => ['type' => 'date']
+	];
 
-	public $validates = array();
+	public $validates = [];
 
 	public function pushMessage($discussion, $message) {
 		$defaults = [
@@ -49,7 +49,6 @@ class Discussions extends \dad\extensions\data\BaseModel {
 
 		return true;
 	}
-
 }
 
 ?>

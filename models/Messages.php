@@ -8,26 +8,26 @@ use lithium\data\Entity;
 
 class Messages extends \dad\extensions\data\BaseModel {
 
-	protected $_meta = array(
+	protected $_meta = [
 		'connection' => false,
 		'source' => false,
 		'locked' => true,
 		'key' => 'id'
-	);
+	];
 
-	protected $_schema = array(
-		'id'           => array('type' => 'string'),
-		'content'      => array('type' => 'string'),
-		'creator'      => array('type' => 'object'),
-		'creator.id'   => array('type' => 'string'),
-		'creator.name' => array('type' => 'string'),
-		'created_at'   => array('type' => 'date'),
-		'updated_at'   => array('type' => 'date')
-	);
+	protected $_schema = [
+		'id'           => ['type' => 'string'],
+		'content'      => ['type' => 'string'],
+		'creator'      => ['type' => 'object'],
+		'creator.id'   => ['type' => 'string'],
+		'creator.name' => ['type' => 'string'],
+		'created_at'   => ['type' => 'date'],
+		'updated_at'   => ['type' => 'date']
+	];
 
-	public $validates = array();
+	public $validates = [];
 
-	public static function find($type, array $options = array()) {
+	public static function find($type, array $options = []) {
 		$discussion_id = $options['conditions']['discussion_id'];
 		$message_id = $options['conditions']['id'];
 
