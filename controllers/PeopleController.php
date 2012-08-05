@@ -99,7 +99,9 @@ class PeopleController extends \dad\extensions\action\BaseController{
 	 * Encapsulate the permissible attributes of a person
 	 */
 	private function person_data() {
-		return array_intersect_key($this->request->data, array_flip(['name', 'email_address', 'avatar_url']));
+		return array_intersect_key(
+			$this->request->data,
+			array_flip(['name', 'email_address', 'avatar_url', 'password']));
 	}
 }
 

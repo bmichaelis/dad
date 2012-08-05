@@ -50,6 +50,15 @@ Router::connect('/{:args}.{:type:json}', array(), array('continue' => true));
  */
 Router::resource('People');
 
+Router::connect('/signup', ['People::add']);
+
+Router::connect('/signin', ['Sessions::add']);
+Router::connect('/sessions', ['Sessions::create', 'http:method' => 'POST']);
+
+Router::connect('/signout', ['Sessions::delete']);
+
+
+
 /**
  * Projects routes
  */
