@@ -46,6 +46,20 @@ if (!Environment::is('production')) {
 Router::connect('/{:args}.{:type:json}', [], ['continue' => true]);
 
 /**
+ * People routes
+ */
+Router::resource('People');
+
+Router::connect('/signup', ['People::add']);
+
+Router::connect('/signin', ['Sessions::add']);
+Router::connect('/sessions', ['Sessions::create', 'http:method' => 'POST']);
+
+Router::connect('/signout', ['Sessions::delete']);
+
+
+
+/**
  * Projects routes
  */
 Router::resource('Projects');
