@@ -21,9 +21,7 @@ class Projects extends \dad\extensions\data\BaseModel {
 	public $validates = [];
 
 	public function discussions($project, array $options = []) {
-		$defaults =  ['project_id' => (string) $project->_id];
-		$conditions = $options += $defaults;
-
+		$conditions = $options += ['project_id' => (string) $project->_id];
 		return Discussions::all(compact('conditions'));
 	}
 }
