@@ -9,7 +9,7 @@ $new_message_path = Router::match([
 <article>
 	<header>
 		<h3><?= $discussion->subject ?></h3>
-		<p>Posted by Mehdi <time data-time-ago="" datetime="2012-06-16T22:31:51Z" style="">on Jun 17</time></p>
+		<p>Posted by <?= $discussion->creator->name ?> <time datetime="2012-06-16T22:31:51Z" style="">on Jun 17</time></p>
 	</header>
 
 	<div>
@@ -21,7 +21,7 @@ $new_message_path = Router::match([
 			<h4>Discuss this message</h4>
 			<?php foreach ($discussion->messages as $message) : ?>
 			<article class="message">
-				<div><?= $message->content ?></div>
+				<div><strong><?= $message->creator->name ?></strong> – <?= $message->content ?></div>
 			</article>
 			<?php endforeach; ?>
 		</section>

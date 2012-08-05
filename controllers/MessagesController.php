@@ -33,7 +33,9 @@ class MessagesController extends \dad\extensions\action\BaseController {
 	 * with the `Location` header set to the URL of the newly-created message.
 	 */
 	public function create() {
-		$message = Messages::create($this->message_data());
+		$user = $this->current_user();
+		$message = Messages::create($this->message_data() + ['creator' => ['id' => (string) $user->_id, 'name' => $user->name]]);
+
 		if ($this->discussion->pushMessage($message)) {
 			return $this->redirect(['Discussions::show', 'id' => $this->discussion->_id, 'project_id' => $this->discussion->project_id]);
 		}

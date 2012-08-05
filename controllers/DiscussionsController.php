@@ -73,7 +73,8 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 * with the `Location` header set to the URL of the newly-created discussion.
 	 */
 	public function create() {
-		$discussion = Discussions::create($this->discussion_data());
+		$user = $this->current_user();
+		$discussion = Discussions::create($this->discussion_data() + ['creator' => ['id' => (string) $user->_id, 'name' => $user->name]]);
 
 		if ($discussion->save()) {
 			return $this->redirect(['Discussions::show', 'id' => $discussion->_id, 'project_id' => $this->request->project_id]);

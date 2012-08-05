@@ -52,7 +52,8 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 	 * with the `Location` header set to the URL of the newly-created project.
 	 */
 	public function create() {
-		$project = Projects::create($this->project_data());
+		$user = $this->current_user();
+		$project = Projects::create($this->project_data() + ['creator' => ['id' => (string) $user->_id, 'name' => $user->name]]);
 
 		if ($project->save()) {
 			return $this->redirect(['Projects::show' , 'id' => $project->_id]);
