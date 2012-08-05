@@ -36,14 +36,14 @@ Router::connect('/pages/{:args}', 'Pages::view');
  * [http://path/to/app/test](/test) to run tests.
  */
 if (!Environment::is('production')) {
-	Router::connect('/test/{:args}', array('controller' => 'lithium\test\Controller'));
-	Router::connect('/test', array('controller' => 'lithium\test\Controller'));
+	Router::connect('/test/{:args}', ['controller' => 'lithium\test\Controller']);
+	Router::connect('/test', ['controller' => 'lithium\test\Controller']);
 }
 
 /**
  * Handling API output formats.
  */
-Router::connect('/{:args}.{:type:json}', array(), array('continue' => true));
+Router::connect('/{:args}.{:type:json}', [], ['continue' => true]);
 
 /**
  * Projects routes
