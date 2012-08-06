@@ -18,7 +18,9 @@ class Projects extends \dad\extensions\data\BaseModel {
 		'updated_at'   => ['type' => 'date']
 	];
 
-	public $validates = [];
+	public $validates = [
+		'name' => 'Must not be blank.'
+	];
 
 	public function discussions($project, array $options = []) {
 		$conditions = $options += ['project_id' => (string) $project->_id];

@@ -14,7 +14,14 @@ class People extends \dad\extensions\data\BaseModel {
 		'updated_at'    => ['type' => 'date']
 	];
 
-	public $validates = [];
+	public $validates = [
+		'name' => 'Must not be blank.',
+		'email_address' => [
+			['notEmpty', 'message' => 'Must not be blank.'],
+			['email', 'message' => "That doesn't look like a valid email address."]
+		],
+		'password' => 'Must not be blank.'
+	];
 }
 
 ?>
