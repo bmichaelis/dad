@@ -2,7 +2,11 @@
 
 namespace dad\models;
 
+use dad\models\Messages;
+
 use lithium\util\String;
+use lithium\util\Set;
+use lithium\data\Entity;
 
 class Discussions extends \dad\extensions\data\BaseModel {
 
@@ -19,7 +23,34 @@ class Discussions extends \dad\extensions\data\BaseModel {
 		'updated_at'   => ['type' => 'date']
 	];
 
-	public function pushMessage($discussion, $message) {
+	public function messages($discussion, array $options = []) {
+		return $discussion->messages;
+	}
+
+	public function message($discussion, array $options = []) {
+		$message_id = $options['id'];
+		$message_data = Set::extract($discussion->data(), "/messages[id={$message_id}]/.");
+
+		if (empty($message_data)) {
+			return null;
+		}
+
+		$message = new Entity([
+			'data' => $message_data[0],
+			'model' => __CLASS__
+		]);
+
+		// Sync the Entity to be flagged as existing
+		$message->sync($message->id);
+
+		return $message;
+	}
+
+	public function create_message($discussion, array $data = [], array $options = []) {
+		return Messages::create($data, $options);
+	}
+
+	public function push_message($discussion, $message) {
 		$defaults = [
 			'id' => String::uuid(),
 			'created_at' => new \MongoDate(),
@@ -37,7 +68,7 @@ class Discussions extends \dad\extensions\data\BaseModel {
 		return true;
 	}
 
-	public function pullMessage($discussion, $message) {
+	public function pull_message($discussion, $message) {
 		$query = ['$pull' => ['messages' => ['id' => $message->id]]];
 		$conditions = ['_id' => $discussion->_id];
 

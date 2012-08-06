@@ -8,6 +8,8 @@ use lithium\action\DispatchException;
 
 class DiscussionsController extends \dad\extensions\action\BaseController {
 
+	public $project = null;
+
 	protected function _init() {
 		parent::_init();
 		$this->applyFilter('__invoke', function($self, $params, $chain){
@@ -17,6 +19,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 				throw new DispatchException();
 			}
 
+			$this->project = $project;
 			$self->set(compact('project'));
 
 			return $chain->next($self, $params, $chain);
@@ -30,9 +33,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 *
 	 */
 	public function index() {
-		$conditions = ['project_id' => $this->request->project_id];
-		$discussions = Discussions::all(compact('conditions'));
-
+		$discussions = $this->project->discussions();
 		return compact('discussions');
 	}
 
@@ -43,11 +44,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 *
 	 */
 	public function show() {
-		$conditions = [
-			'_id' => $this->request->id,
-			'project_id' => $this->request->project_id
-		];
-		$discussion = Discussions::first(compact('conditions'));
+		$discussion = $this->project->discussion(['_id' => $this->request->id]);
 
 		if (!$discussion) {
 			return $this->redirect(['Discussions::index', 'project_id' => $this->request->project_id]);
@@ -60,7 +57,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 * - GET `/projects/1/discussions/add`
 	 */
 	public function add() {
-		$discussion = Discussions::create();
+		$discussion = $this->project->create_discussion();
 		return compact('discussion');
 	}
 
@@ -74,7 +71,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 */
 	public function create() {
 		$user = $this->current_user();
-		$discussion = Discussions::create($this->discussion_data() + ['creator' => ['id' => (string) $user->_id, 'name' => $user->name]]);
+		$discussion = $this->project->create_discussion($this->discussion_data() + ['creator' => ['id' => (string) $user->_id, 'name' => $user->name]]);
 
 		if ($discussion->save()) {
 			return $this->redirect(['Discussions::show', 'id' => $discussion->_id, 'project_id' => $this->request->project_id]);
@@ -89,11 +86,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 * - `GET /projects/1/discussions/1/edit`
 	 */
 	public function edit() {
-		$conditions = [
-			'_id' => $this->request->id,
-			'project_id' => $this->request->project_id
-		];
-		$discussion = Discussions::first(compact('conditions'));
+		$discussion = $this->project->discussion(['_id' => $this->request->id]);
 
 		if (!$discussion) {
 			return $this->redirect(['Discussions::index', 'project_id' => $this->request->project_id]);
@@ -111,11 +104,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 * If the user does not have access to update the project, you'll see `403 Forbidden`.
 	 */
 	public function update() {
-		$conditions = [
-			'_id' => $this->request->id,
-			'project_id' => $this->request->project_id
-		];
-		$discussion = Discussions::first(compact('conditions'));
+		$discussion = $this->project->discussion(['_id' => $this->request->id]);
 
 		if ($discussion->save($this->discussion_data())) {
 			return $this->redirect(['Discussions::show', 'id' => $discussion->_id, 'project_id' => $this->request->project_id]);
@@ -134,12 +123,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 * Return a `204 No Content` on success.
 	 */
 	public function delete() {
-		$conditions = [
-			'_id' => $this->request->id,
-			'project_id' => $this->request->project_id
-		];
-
-		$discussion = Discussions::first(compact('conditions'));
+		$discussion = $this->project->discussion(['_id' => $this->request->id]);
 
 		if ($discussion->delete()) {
 			return $this->render(['head' => true, 'status' => 204]);
@@ -152,8 +136,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 * Encapsulate the permissible attributes of a discussion
 	 */
 	private function discussion_data() {
-		$data = array_intersect_key($this->request->data, array_flip(['subject', 'content']));
-		return $data + ['project_id' => $this->request->project_id];
+		return array_intersect_key($this->request->data, array_flip(['subject', 'content']));
 	}
 }
 

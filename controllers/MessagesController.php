@@ -34,9 +34,9 @@ class MessagesController extends \dad\extensions\action\BaseController {
 	 */
 	public function create() {
 		$user = $this->current_user();
-		$message = Messages::create($this->message_data() + ['creator' => ['id' => (string) $user->_id, 'name' => $user->name]]);
+		$message = $this->discussion->create_message($this->message_data() + ['creator' => ['id' => (string) $user->_id, 'name' => $user->name]]);
 
-		if ($this->discussion->pushMessage($message)) {
+		if ($this->discussion->push_message($message)) {
 			return $this->redirect(['Discussions::show', 'id' => $this->discussion->_id, 'project_id' => $this->discussion->project_id]);
 		}
 
@@ -67,14 +67,9 @@ class MessagesController extends \dad\extensions\action\BaseController {
 	 * Return a `204 No Content` on success.
 	 */
 	public function delete() {
-		$message = Messages::first([
-			'conditions' => [
-				'id' => $this->request->id,
-				'discussion_id' => $this->request->discussion_id
-			]
-		]);
+		$message = $this->discussion->message(['id' => $this->request->id]);
 
-		if ($this->discussion->pullMessage($message)) {
+		if ($this->discussion->pull_message($message)) {
 			return $this->render(['head' => true, 'status' => 204]);
 		}
 
