@@ -18,7 +18,8 @@ class People extends \dad\extensions\data\BaseModel {
 		'name' => 'Must not be blank.',
 		'email_address' => [
 			['notEmpty', 'message' => 'Must not be blank.'],
-			['email', 'message' => "That doesn't look like a valid email address."]
+			['email', 'message' => "That doesn't look like a valid email address."],
+			['unique', 'message' => 'An existing account with this email address already exists.']
 		],
 		'password' => 'Must not be blank.'
 	];

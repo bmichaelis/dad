@@ -83,4 +83,9 @@ if (PHP_SAPI === 'cli') {
 	require __DIR__ . '/bootstrap/console.php';
 }
 
+/**
+ * This file contains custom validators.
+ */
+require __DIR__ . '/bootstrap/validators.php';
+
 ?>
