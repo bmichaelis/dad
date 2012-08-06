@@ -16,16 +16,19 @@ Auth::config(array(
 
 
 Dispatcher::applyFilter('_callable', function($self, $params, $chain) {
-	$controller = $chain->next($self, $params, $chain);
-	$action  = $params['params']['action'];
+	$chain = $chain->next($self, $params, $chain);
+
 	$request = isset($params['request']) ? $params['request'] : null;
+	$controller  = $params['params']['controller'];
+	$action  = $params['params']['action'];
 
 	if (Auth::check('default')) {
-		return $controller;
+		return $chain;
 	}
 
-	if ($request->params['controller'] == 'Sessions' && in_array($action, ['add', 'create'])) {
-		return $controller;
+	$public = in_array($controller, ['People', 'Sessions']) && in_array($action, ['add', 'create']);
+	if ($public) {
+		return $chain;
 	}
 
 	return function() use($request) {
