@@ -13,7 +13,7 @@ class BaseController extends \lithium\action\Controller {
 	}
 
 	protected function current_user() {
-		if (!($user = Auth::check('default'))) {
+		if (!($user = Auth::check('user'))) {
 			return null;
 		}
 

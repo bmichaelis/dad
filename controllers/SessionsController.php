@@ -10,7 +10,7 @@ class SessionsController extends \dad\extensions\action\BaseController {
 	}
 
 	public function create() {
-		if (Auth::check('default', $this->request)) {
+		if (Auth::check('user', $this->request)) {
 			return $this->redirect('/');
 		} else {
 			return $this->redirect('/signin', ['error' => "We didn't recognize the username or password you entered. Please try again."]);
@@ -18,7 +18,7 @@ class SessionsController extends \dad\extensions\action\BaseController {
 	}
 
 	public function delete() {
-		Auth::clear('default');
+		Auth::clear('user');
 		return $this->redirect('/');
 	}
 }

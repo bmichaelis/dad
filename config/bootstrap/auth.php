@@ -6,13 +6,16 @@ use lithium\action\Dispatcher;
 use lithium\action\Response;
 use lithium\util\collection\Filters;
 
-Auth::config(array(
-	'default' => array(
+Auth::config([
+	'user' => [
 		'adapter' => 'Form',
 		'model' => 'People',
-		'fields' => array('email_address', 'password')
-	)
-));
+		'fields' => ['email_address', 'password'],
+		'session' => [
+			'persist' => ['_id', 'name', 'email_address']
+		]
+	]
+]);
 
 
 Dispatcher::applyFilter('_callable', function($self, $params, $chain) {
@@ -22,7 +25,7 @@ Dispatcher::applyFilter('_callable', function($self, $params, $chain) {
 	$controller  = $params['params']['controller'];
 	$action  = $params['params']['action'];
 
-	if (Auth::check('default')) {
+	if (Auth::check('user')) {
 		return $chain;
 	}
 
