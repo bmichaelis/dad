@@ -10,3 +10,6 @@
 [submodule "libraries/li3_rest"]
 	path = libraries/li3_rest
 	url = git://github.com/mehlah/li3_rest.git
+[submodule "libraries/li3_flash_message"]
+	path = libraries/li3_flash_message
+	url = git@github.com:mehlah/li3_flash_message.git

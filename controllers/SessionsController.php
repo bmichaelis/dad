@@ -13,8 +13,7 @@ class SessionsController extends \dad\extensions\action\BaseController {
 		if (Auth::check('default', $this->request)) {
 			return $this->redirect('/');
 		} else {
-			//Todo: Set a flash message here
-			return $this->redirect('/');
+			return $this->redirect('/signin', ['error' => "We didn't recognize the username or password you entered. Please try again."]);
 		}
 	}
 
