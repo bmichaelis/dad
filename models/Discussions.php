@@ -19,8 +19,6 @@ class Discussions extends \dad\extensions\data\BaseModel {
 		'updated_at'   => ['type' => 'date']
 	];
 
-	public $validates = [];
-
 	public function pushMessage($discussion, $message) {
 		$defaults = [
 			'id' => String::uuid(),

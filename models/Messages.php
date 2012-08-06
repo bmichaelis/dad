@@ -25,7 +25,9 @@ class Messages extends \dad\extensions\data\BaseModel {
 		'updated_at'   => ['type' => 'date']
 	];
 
-	public $validates = [];
+	public $validates = [
+		'content' => 'Cowardly refusing to save an empty message.'
+	];
 
 	public static function find($type, array $options = []) {
 		$discussion_id = $options['conditions']['discussion_id'];
