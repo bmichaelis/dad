@@ -26,6 +26,16 @@ class Projects extends \dad\extensions\data\BaseModel {
 		$conditions = $options += ['project_id' => (string) $project->_id];
 		return Discussions::all(compact('conditions'));
 	}
+
+	public function discussion($project, array $options = []) {
+		$conditions = $options += ['project_id' => (string) $project->_id];
+		return Discussions::first(compact('conditions'));
+	}
+
+	public function create_discussion($project, array $data = [], $options = []) {
+		$data += ['project_id' => (string) $project->_id];
+		return Discussions::create($data, $options);
+	}
 }
 
 ?>
