@@ -1,0 +1,26 @@
+ul#projects-list {
+	list-style: none;
+
+	header {
+		h4 {
+			margin-bottom: 0px;
+			&:first-child { margin-top: 0; }
+		}
+		a {
+			color: $headerFontColor;
+			&:hover {
+				color: $mainColor;
+			}
+		}
+
+		p {
+			color: $brown;
+			word-wrap: break-word;
+			margin-bottom: 5px;
+		}
+
+		p + p {
+			font-size: 12px;
+		}
+	}
+}

@@ -24,8 +24,7 @@
 
 	<div class="row">
 		<div class="twelve columns">
-			<h2>Welcome to Foundation</h2>
-			<p>This is version 3.0.8.rc1.</p>
+			<h3>DAD</h3>
 			<hr />
 		</div>
 	</div>
@@ -37,11 +36,5 @@
 	<div class="row">
 		<?php echo $this->content(); ?>
 	</div>
-
-	<?php
-		echo $this->html->script([
-			''
-		]);
-	?>
 </body>
 </html>
