@@ -1,10 +1,13 @@
 ul#projects-list {
 	list-style: none;
 
+	li:first-child h4 {
+		margin-top: 0px;
+	}
+
 	header {
 		h4 {
 			margin-bottom: 0px;
-			&:first-child { margin-top: 0; }
 		}
 		a {
 			color: $headerFontColor;
@@ -23,4 +26,8 @@ ul#projects-list {
 			font-size: 12px;
 		}
 	}
+}
+
+div.projects-nav {
+	margin-bottom: 16px;
 }

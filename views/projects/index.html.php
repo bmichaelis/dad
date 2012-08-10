@@ -1,4 +1,4 @@
-<div class="two columns">
+<div class="two columns projects-nav">
 	<?= $this->html->link(
 		'+ New Project',
 		['Projects::add', 'http:method' => 'GET'],
