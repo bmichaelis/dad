@@ -19,6 +19,9 @@
 			'modernizr-2.6.1.min.js'
 		]);
 	?>
+
+	<script type="text/javascript" src="//use.typekit.net/bhz8fbs.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="app">
 
