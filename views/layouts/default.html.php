@@ -12,11 +12,11 @@
 	<?php
 		echo $this->html->style([
 			'debug.css',
-			'app.css',
+			'app.css'
 		]);
 
 		echo $this->html->script([
-			'modernizer-2.6.1.min.js'
+			'modernizr-2.6.1.min.js'
 		]);
 	?>
 </head>
@@ -36,5 +36,21 @@
 	<div class="row">
 		<?php echo $this->content(); ?>
 	</div>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.8.0.min.js"><\/script>')</script>
+
+	<?php
+		echo $this->html->script([
+			'jquery.foundation.alerts.js',
+			'jquery.foundation.buttons.js',
+			'jquery.foundation.navigation.js',
+			'jquery.foundation.forms.js',
+			'jquery.foundation.tabs.js',
+			'jquery.foundation.tooltips.js',
+			'app.js'
+		]);
+	?>
+
 </body>
 </html>
