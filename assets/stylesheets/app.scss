@@ -14,7 +14,6 @@
 @import "foundation/components/grid";
 
 @import "foundation/common/typography";
-@import "foundation/common/forms";
 
 @import "foundation/components/modules/tabs";
 @import "foundation/components/modules/ui";
@@ -26,6 +25,7 @@ body {
   background-color: #fbfcf8;
 }
 
+@import "_forms";
 @import "_buttons";
 
 @import "projects";

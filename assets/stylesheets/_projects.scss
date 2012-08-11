@@ -31,3 +31,20 @@ ul#projects-list {
 div.projects-nav {
 	margin-bottom: 16px;
 }
+
+div.project-examples {
+	h6 {
+		font-size: 14px;
+		color: $orange;
+	}
+	h5 {
+		margin-bottom: 0px;
+	}
+	p {
+		font-size: 14px;
+		color: $brown;
+	}
+
+	margin-top: 17px;
+	border-left: 1px solid #ddd;
+}
