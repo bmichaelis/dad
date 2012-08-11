@@ -1,3 +1,3 @@
-<div class="nine columns">
+<div class="eight columns">
 	<?= $this->element->render('form'); ?>
 </div>

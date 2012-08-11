@@ -13,3 +13,6 @@
 [submodule "libraries/li3_flash_message"]
 	path = libraries/li3_flash_message
 	url = git@github.com:mehlah/li3_flash_message.git
+[submodule "libraries/li3_time_helper"]
+	path = libraries/li3_time_helper
+	url = git@github.com:mehlah/li3_time_helper.git
