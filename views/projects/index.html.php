@@ -2,7 +2,7 @@
 	<?= $this->html->link(
 		'+ New Project',
 		['Projects::add', 'http:method' => 'GET'],
-		['class' => 'button small']
+		['class' => 'button small radius']
 	) ?>
 </div>
 

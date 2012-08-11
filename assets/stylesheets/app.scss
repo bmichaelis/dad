@@ -16,11 +16,16 @@
 @import "foundation/common/typography";
 @import "foundation/common/forms";
 
-@import "foundation/components/modules/buttons";
 @import "foundation/components/modules/tabs";
 @import "foundation/components/modules/ui";
 @import "foundation/components/modules/navbar";
 @import "foundation/components/modules/reveal";
 @import "foundation/components/modules/offcanvas";
+
+body {
+  background-color: #fbfcf8;
+}
+
+@import "_buttons";
 
 @import "projects";
