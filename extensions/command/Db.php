@@ -48,6 +48,8 @@ class Db extends \lithium\console\Command {
 			},
 			'subject' => function() use ($generator) { return $generator->sentence(10); },
 			'content' => function() use ($generator) { return join('<br />', $generator->paragraphs(rand(1, 4))); },
+			'creator.id' => function() use ($people_ids) { return (string) $people_ids['People'][array_rand($people_ids['People'])]; },
+			'creator.name' => function() use ($generator) { return $generator->name(); },
 			'messages' => function() use($generator, $people_ids) {
 				$messages = [];
 
