@@ -1,13 +1,30 @@
-<h3> <?= $project->name ?> discussions</h3>
+<div class="twelve columns project">
+	<header>
+		<h3><?= $this->title($project->name . ' discussions') ?></h3>
+		<p><?= $project->description ?></p>
+	</header>
 
-<?php
-	if (!count($discussions)) {
-		echo 'Blankslate placeholder';
-	}
-?>
+	<?php
+		if (!count($discussions)) {
+			echo 'Blankslate placeholder';
+		}
+	?>
 
-<ul id="discussions">
-	<?php foreach ($discussions as $discussion) : ?>
-	<li><?= $this->html->link($discussion->subject, ['Discussions::show', 'project_id' => $project->_id, 'id' => $discussion->_id]) ?></li>
-	<?php endforeach; ?>
-</ul>
+	<div id="discussions-list">
+		<h5>
+			Discussions
+			<?= $this->html->link(
+				'Start a discussion',
+				['Discussions::add', 'project_id' => $project->_id],
+				['class' => 'button tiny radius']
+			) ?>
+		</h5>
+		<ul>
+			<?php foreach ($discussions as $discussion) : ?>
+			<li class="row">
+				<?= $this->element->render('discussion_item', ['discussion' => $discussion]) ?>
+			</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</div>
