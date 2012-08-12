@@ -1,32 +1,59 @@
-<?php
-/**
- * Lithium: the most rad php framework
- *
- * @copyright     Copyright 2012, Union of RAD (http://union-of-rad.org)
- * @license       http://opensource.org/licenses/bsd-license.php The BSD License
- */
-?>
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-	<?php echo $this->html->charset();?>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Application &gt; <?php echo $this->title(); ?></title>
-	<?php echo $this->html->style(array('debug', 'lithium')); ?>
-	<?php echo $this->scripts(); ?>
-	<?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
+	<meta name="viewport" content="width=device-width">
+
+	<?php
+		echo $this->html->style([
+			'debug.css',
+			'app.css'
+		]);
+
+		echo $this->html->script([
+			'modernizr-2.6.1.min.js'
+		]);
+	?>
+
+	<script type="text/javascript" src="//use.typekit.net/bhz8fbs.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="app">
-	<div id="container">
-		<div id="header">
-			<h1>Application</h1>
-			<h2>
-				Powered by <?php echo $this->html->link('Lithium', 'http://lithify.me/'); ?>.
-			</h2>
-		</div>
-		<div id="content">
-			<?= $this->flashMessage->output(); ?>
-			<?php echo $this->content(); ?>
+
+	<div class="row">
+		<div class="twelve columns">
+			<h3>DAD</h3>
+			<hr />
 		</div>
 	</div>
+
+	<div class="row">
+		<?= $this->flashMessage->output(); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $this->content(); ?>
+	</div>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.8.0.min.js"><\/script>')</script>
+
+	<?php
+		echo $this->html->script([
+			'jquery.foundation.alerts.js',
+			'jquery.foundation.buttons.js',
+			'jquery.foundation.navigation.js',
+			'jquery.foundation.forms.js',
+			'jquery.foundation.tabs.js',
+			'jquery.foundation.tooltips.js',
+			'app.js'
+		]);
+	?>
+
 </body>
 </html>
