@@ -1,0 +1,29 @@
+// discussion view
+
+.discussion {
+	article > header {
+		h3 {
+			margin-bottom: 0px;
+		}
+		p {
+			color: $brown;
+		}
+	}
+	div.creator-avatar img {
+		height: 52px;
+		border-radius: 100px;
+	}
+	.formatted-content {
+		font-size: ms(0);
+		line-height: 1.6;
+		margin-bottom: ms(1)
+	}
+
+	#messages {
+		.message {
+			margin-bottom: ms(1);
+		}
+		margin-bottom: ms(2);
+	}
+
+}
