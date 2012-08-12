@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Application &gt; <?php echo $this->title(); ?></title>
+	<title>DAD &gt; <?php echo $this->title(); ?></title>
 	<meta name="viewport" content="width=device-width">
 
 	<?php
@@ -27,7 +27,7 @@
 
 	<div class="row">
 		<div class="twelve columns">
-			<h3>DAD</h3>
+		<h3><?= $this->html->link('DAD', '/') ?></h3>
 			<hr />
 		</div>
 	</div>
