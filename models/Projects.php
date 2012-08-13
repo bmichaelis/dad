@@ -27,6 +27,11 @@ class Projects extends \dad\extensions\data\BaseModel {
 		return Discussions::all(compact('conditions'));
 	}
 
+	public function count_discussions($project, array $options = []) {
+		$conditions = $options += ['project_id' => (string) $project->_id];
+		return Discussions::count(compact('conditions'));
+	}
+
 	public function discussion($project, array $options = []) {
 		$conditions = $options += ['project_id' => (string) $project->_id];
 		return Discussions::first(compact('conditions'));
