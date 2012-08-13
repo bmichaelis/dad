@@ -2,7 +2,7 @@
 
 namespace dad\extensions\helper;
 
-class People extends \lithium\template\Helper {
+class Person extends \lithium\template\Helper {
 
 	public function short_name($name) {
 		$name = ucwords(strtolower($name));

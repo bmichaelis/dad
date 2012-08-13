@@ -2,17 +2,17 @@
 
 namespace dad\tests\cases\extensions\helper;
 
-use dad\extensions\helper\People;
+use dad\extensions\helper\Person;
 use lithium\tests\mocks\template\helper\MockHtmlRenderer;
 
-class PeopleTest extends \lithium\test\Unit {
+class PersonTest extends \lithium\test\Unit {
 
 	public function setUp() {
-		$this->people = new People(array('context' => new MockHtmlRenderer()));
+		$this->person = new Person(array('context' => new MockHtmlRenderer()));
 	}
 
 	public function tearDown() {
-		unset($this->people);
+		unset($this->person);
 	}
 
 	public function test_short_name() {
@@ -24,7 +24,7 @@ class PeopleTest extends \lithium\test\Unit {
 		];
 
 		foreach ($pairs as $name => $expected) {
-			$this->assertEqual($expected, $this->people->short_name($name));
+			$this->assertEqual($expected, $this->person->short_name($name));
 		}
 	}
 }

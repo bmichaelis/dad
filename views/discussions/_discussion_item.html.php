@@ -3,7 +3,7 @@
 		<span class="creator-avatar">
 			<?= $this->html->image('http://placehold.it/80x80') ?>
 		</span>
-		<?= $this->people->short_name($discussion->creator->name) ?>
+		<?= $this->person->short_name($discussion->creator->name) ?>
 	</p>
 </div>
 <div class="nine columns">
