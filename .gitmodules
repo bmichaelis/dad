@@ -16,3 +16,6 @@
 [submodule "libraries/li3_time_helper"]
 	path = libraries/li3_time_helper
 	url = git@github.com:mehlah/li3_time_helper.git
+[submodule "libraries/li3_faker/libraries/Faker"]
+	path = libraries/li3_faker/libraries/Faker
+	url = git://github.com/fzaninotto/Faker.git
