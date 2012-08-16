@@ -51,9 +51,18 @@
 			'jquery.foundation.forms.js',
 			'jquery.foundation.tabs.js',
 			'jquery.foundation.tooltips.js',
+			'wysihtml5-parser-rules.js',
+			'wysihtml5-0.3.0.min.js',
 			'app.js'
 		]);
 	?>
+
+	<script>
+	var editor = new wysihtml5.Editor("wysihtml5-textarea", {
+	  toolbar:      "wysihtml5-toolbar",
+	  parserRules:  wysihtml5ParserRules
+	});
+	</script>
 
 </body>
 </html>
