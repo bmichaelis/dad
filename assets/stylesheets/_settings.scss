@@ -1,4 +1,4 @@
-@import "foundation/functions/modular-scale";
+@import "foundation/common/ratios";
 
 // Grid Settings
 $rowWidth: 1000px;
@@ -53,7 +53,8 @@ $navFlyoutBaseWidth: 250px;
 
 // Modular Scale
 $ratio: $golden;
-$base-size: 16px 44px;
+$baseFontSize: 16px;
+$importantModNum: 44px;
 
 // Tooltip Settings
 $hasTipBorderBottom: dotted 1px #ccc;
