@@ -8,7 +8,14 @@
 
 	<?= $this->form->create($discussion, array('url' => $new_discussion_path)) ?>
 		<?= $this->form->field('subject') ?>
-		<?= $this->form->field('content', ['type' => 'textarea', 'rows' => 15]) ?>
+
+		<?= $this->element->render('wysihtml5-toolbar'); ?>
+		<?= $this->form->field('content', [
+			'id' => 'wysihtml5-textarea',
+			'type' => 'textarea',
+			'rows' => 15])
+		?>
+
 		<?= $this->form->submit('Add this discussion', ['class' => 'button small radius']) ?>
 	<?= $this->form->end() ?>
 </div>
