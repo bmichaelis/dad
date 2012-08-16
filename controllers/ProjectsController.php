@@ -13,7 +13,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 	 *
 	 */
 	public function index() {
-		$projects = Projects::all();
+		$projects = Projects::all(['order' => ['name' => 'ASC']]);
 		return compact('projects');
 	}
 
