@@ -9,7 +9,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 	/**
 	 * List projects
 	 *
-	 * - `GET /projects/1` will return all the projects for the project.
+	 * - `GET /projects` will return all the projects for the project.
 	 *
 	 */
 	public function index() {
