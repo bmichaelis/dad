@@ -11,6 +11,9 @@ Auth::config([
 		'adapter' => 'Form',
 		'model' => 'People',
 		'fields' => ['email_address', 'password'],
+		'filters' => array(
+			'email_address' => 'strtolower' //iOS Usability to prevent a default autocapitalization
+		),
 		'session' => [
 			'persist' => ['_id', 'name', 'email_address']
 		]
