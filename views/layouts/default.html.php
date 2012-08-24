@@ -24,7 +24,6 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="app">
-
 	<div class="row">
 		<div class="twelve columns">
 		<h3><?= $this->html->link('DAD', '/') ?></h3>
@@ -53,6 +52,7 @@
 			'jquery.foundation.tooltips.js',
 			'wysihtml5-parser-rules.js',
 			'wysihtml5-0.3.0.min.js',
+			'application-ujs.js',
 			'app.js'
 		]);
 	?>
