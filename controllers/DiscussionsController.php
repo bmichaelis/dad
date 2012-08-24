@@ -123,13 +123,8 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 * Return a `204 No Content` on success.
 	 */
 	public function delete() {
-		$discussion = $this->project->discussion(['_id' => $this->request->id]);
-
-		if ($discussion->delete()) {
-			return $this->render(['head' => true, 'status' => 204]);
-		}
-
-		return $this->render(['head' => true, 'status' => 400]);
+		$this->project->discussion(['_id' => $this->request->id])->delete();
+		return $this->redirect(['Discussions::index', 'project_id' => $this->request->project_id]);
 	}
 
 	/**

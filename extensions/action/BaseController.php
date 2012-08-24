@@ -10,6 +10,8 @@ class BaseController extends \lithium\action\Controller {
 	protected function _init() {
 		$this->_render['negotiate'] = true;
 		parent::_init();
+
+		$this->set(['current_user' => $this->current_user()]);
 	}
 
 	protected function current_user() {

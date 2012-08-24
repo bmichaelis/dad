@@ -5,8 +5,20 @@
 		h3 {
 			margin-bottom: 0px;
 		}
-		p {
+		div {
 			color: $brown;
+			font-size: ms(0);
+			line-height: 1.6;
+			margin-bottom: ms(1);
+			nav {
+				display: inline;
+				margin-left: 6px;
+				a {
+					color: $brown;
+					text-decoration: underline;
+					&:hover { color: $orange; }
+				}
+			}
 		}
 	}
 	div.creator-avatar img {

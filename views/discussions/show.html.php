@@ -1,16 +1,21 @@
-<?php
-use \lithium\net\http\Router;
-$new_message_path = Router::match([
-	'Messages::create',
-	'project_id' => $project->_id, 'discussion_id' => $discussion->_id
-	]);
-?>
-
 <div class="twelve columns discussion">
 <article>
 	<header>
 		<h3><?= $discussion->subject ?></h3>
-		<p>Posted by <?= $discussion->creator->name ?> <time datetime="<?= date('c', $discussion->created_at->sec) ?>" style="">on <?= date('M j', $discussion->created_at->sec) ?></time></p>
+		<div>
+			Posted by <?= $discussion->creator->name ?> <time datetime="<?= date('c', $discussion->created_at->sec) ?>">on <?= date('M j', $discussion->created_at->sec) ?></time>
+			<?php if ($discussion->creator->id == $current_user->_id) : ?>
+			<nav>
+				<?= $this->html->link('Edit', $this->discussion->edit_path($discussion, $project)) ?> |
+				<?= $this->html->link(
+						'Delete',
+						$this->discussion->path($discussion, $project),
+						['data-method' => 'delete', 'data-confirm' => 'Delete this message ?']
+					)
+				?>
+			</nav>
+			<?php endif; ?>
+		</div>
 	</header>
 
 	<div class="row">
@@ -33,7 +38,15 @@ $new_message_path = Router::match([
 			?>
 		</section>
 
-		<?php echo $this->element->render('add_message', compact('new_message_path')); ?>
+		<?php
+		use \lithium\net\http\Router;
+		$new_message_path = Router::match([
+			'Messages::create',
+			'project_id' => $project->_id, 'discussion_id' => $discussion->_id
+			]);
+
+		echo $this->element->render('add_message', compact('new_message_path'));
+		?>
 
 	</footer>
 </article>
