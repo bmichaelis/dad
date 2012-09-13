@@ -3,6 +3,7 @@
 namespace dad\models;
 
 use dad\models\Messages;
+use dad\models\Projects;
 
 use lithium\util\String;
 use lithium\util\Set;
@@ -78,6 +79,32 @@ class Discussions extends \dad\extensions\data\BaseModel {
 
 		return true;
 	}
+
+	public function project($discussion) {
+		return Projects::first($discussion->project_id);
+	}
 }
+
+Discussions::applyFilter(['save', 'delete'], function ($self, $params, $chain) {
+	$chain = $chain->next($self, $params, $chain);
+
+	$project = $params['entity']->project();
+	$project->updated_at = new \MongoDate();
+	$project->save();
+
+	return $chain;
+});
+
+Discussions::applyFilter('update', function ($self, $params, $chain) {
+	$chain = $chain->next($self, $params, $chain);
+
+	$discussion = Discussions::first((string) $params['conditions']['_id']);
+
+	$project = $discussion->project();
+	$project->updated_at = new \MongoDate();
+	$project->save();
+
+	return $chain;
+});
 
 ?>
