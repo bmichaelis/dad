@@ -57,7 +57,12 @@
 		]);
 	?>
 
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<script>
+	var editor = new wysihtml5.Editor("wysihtml5-textarea", {
+	  toolbar:      "wysihtml5-toolbar",
+	  parserRules:  wysihtml5ParserRules
+	});
+	</script>
 
 </body>
 </html>
