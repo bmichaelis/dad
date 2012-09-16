@@ -1,13 +1,23 @@
-(function ($) {
+;(function ($, window, undefined) {
+  'use strict';
 
-  $(function(){
-    $(document).foundationAlerts();
-    $(document).foundationButtons();
-    $(document).foundationNavigation();
-    $(document).foundationCustomForms();
-    $(document).foundationTabs({callback:$.foundation.customForms.appendCustomMarkup});
+  var $doc = $(document),
+      Modernizr = window.Modernizr;
 
-    $(document).tooltips();
-  });
+  $.fn.foundationAlerts           ? $doc.foundationAlerts() : null;
+  $.fn.foundationButtons          ? $doc.foundationButtons() : null;
+  $.fn.foundationNavigation       ? $doc.foundationNavigation() : null;
+  $.fn.foundationCustomForms      ? $doc.foundationCustomForms() : null;
+  $.fn.foundationTabs             ? $doc.foundationTabs({callback : $.foundation.customForms.appendCustomMarkup}) : null;
+  $.fn.foundationTooltips         ? $doc.foundationTooltips() : null;
 
-})(jQuery);
+  // Hide address bar on mobile devices
+  if (Modernizr.touch) {
+    $(window).load(function () {
+      setTimeout(function () {
+        window.scrollTo(0, 1);
+      }, 0);
+    });
+  }
+
+})(jQuery, this);
