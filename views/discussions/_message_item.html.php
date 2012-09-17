@@ -5,5 +5,8 @@
 	<div class="eight columns end formatted-content">
 		<strong><?= $message->creator->name ?></strong> –
 		<?php echo $message->content; ?>
+		<footer>
+			<p class="updated_at"><?= $this->message->updated_at($message) ?></p>
+		<footer>
 	</div>
 </article>

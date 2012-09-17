@@ -85,6 +85,13 @@ div.project-examples {
 			}
 			list-style: none;
 		}
+		.label {
+			&.updated_at {
+				color: $brown;
+				background-color: #fff;
+				font-weight: 500;
+			}
+		}
 		margin-top: 32px;
 	}
 }
