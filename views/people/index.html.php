@@ -10,7 +10,10 @@
 	<ul id="people-list" class="block-grid four-up">
 		<?php foreach ($people as $person) : ?>
 		<li>
-			<?= $this->html->image('http://placehold.it/140x140') ?>
+			<?= $this->gravatar->image($person->gravatar_email, [
+				'default' => '/img/john_doe_avatar.png',
+				'size' => 140
+			]) ?>
 			<h6><?= $person->name ?></h6>
 		</li>
 		<?php endforeach; ?>

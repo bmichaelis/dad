@@ -4,6 +4,7 @@ namespace dad\models;
 
 use dad\models\Messages;
 use dad\models\Projects;
+use dad\models\People;
 
 use lithium\util\String;
 use lithium\util\Set;
@@ -82,6 +83,10 @@ class Discussions extends \dad\extensions\data\BaseModel {
 
 	public function project($discussion) {
 		return Projects::first($discussion->project_id);
+	}
+
+	public function creator($discussion) {
+		return People::first($discussion->creator->id);
 	}
 }
 

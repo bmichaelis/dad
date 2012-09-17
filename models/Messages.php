@@ -2,6 +2,8 @@
 
 namespace dad\models;
 
+use dad\models\People;
+
 class Messages extends \dad\extensions\data\BaseModel {
 
 	protected $_meta = [
@@ -24,6 +26,10 @@ class Messages extends \dad\extensions\data\BaseModel {
 	public $validates = [
 		'content' => 'Cowardly refusing to save an empty message.'
 	];
+
+	public function creator($message) {
+		return People::first($message->creator->id);
+	}
 }
 
 ?>

@@ -1,6 +1,9 @@
 <section class="row message new">
 		<div class="one column creator-avatar">
-			<?= $this->html->image('http://placehold.it/80x80') ?>
+			<?= $this->gravatar->image($current_user->gravatar_email, [
+				'default' => '/img/john_doe_avatar.png',
+				'size' => 80
+			]) ?>
 		</div>
 		<div class="eight columns end">
 			<?= $this->element->render('wysihtml5-toolbar'); ?>

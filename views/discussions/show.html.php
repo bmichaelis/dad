@@ -20,7 +20,10 @@
 
 	<div class="row">
 		<div class="one column creator-avatar">
-			<?= $this->html->image('http://placehold.it/80x80') ?>
+			<?= $this->gravatar->image($discussion->creator()->gravatar_email, [
+				'default' => '/img/john_doe_avatar.png',
+				'size' => 80
+			]) ?>
 		</div>
 		<div class="eight columns end formatted-content">
 			<?php echo $discussion->content; ?>

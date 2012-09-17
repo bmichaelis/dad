@@ -101,7 +101,7 @@ class PeopleController extends \dad\extensions\action\BaseController{
 	private function person_data() {
 		return array_intersect_key(
 			$this->request->data,
-			array_flip(['name', 'email_address', 'avatar_url', 'password']));
+			array_flip(['name', 'email_address', 'password', 'gravatar_email']));
 	}
 }
 
