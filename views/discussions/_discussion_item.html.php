@@ -1,9 +1,12 @@
 <div class="two column creator">
 	<p>
 		<span class="creator-avatar">
-			<?= $this->html->image('http://placehold.it/80x80') ?>
+			<?= $this->gravatar->image($discussion->creator()->gravatar_email, [
+				'default' => '/img/john_doe_avatar.png',
+				'size' => 140
+			]) ?>
 		</span>
-		<?= $this->person->short_name($discussion->creator->name) ?>
+		<?= $this->person->short_name($discussion->creator()->name) ?>
 	</p>
 </div>
 <div class="eight columns">

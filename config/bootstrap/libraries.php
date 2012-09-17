@@ -121,6 +121,7 @@ Libraries::add('li3_rest');
 Libraries::add('li3_flash_message');
 Libraries::add('li3_time_helper');
 Libraries::add('li3_faker');
+Libraries::add('li3_gravatar');
 
 Libraries::add('li3_server');
 Libraries::add('li3_quality');
