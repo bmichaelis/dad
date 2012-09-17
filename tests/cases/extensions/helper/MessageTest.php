@@ -23,6 +23,14 @@ class MessageTest extends \lithium\test\Unit {
 		$this->assertEqual('Posted 22 hours ago, updated 15 minutes later', $result);
 
 		$message = Messages::create([
+			'created_at' => new \MongoDate(strtotime('2012-09-02 17:52')),
+			'updated_at' => new \MongoDate(strtotime('2012-09-02 17:58'))
+		]);
+		$result = $this->message->updated_at($message);
+		$expected = 'Posted on Sep 02, updated 6 minutes later';
+		$this->assertEqual($expected, $result);
+
+		$message = Messages::create([
 			'created_at' => new \MongoDate(strtotime('-22 hours')),
 			'updated_at' => new \MongoDate(strtotime('-22 hours'))
 		]);
@@ -30,20 +38,12 @@ class MessageTest extends \lithium\test\Unit {
 		$this->assertEqual('Posted 22 hours ago', $result);
 
 		$message = Messages::create([
-			'created_at' => new \MongoDate(strtotime('-3 days -1 hour')),
-			'updated_at' => new \MongoDate(strtotime('-3 days -45 minutes'))
+			'created_at' => new \MongoDate(strtotime('2012-09-02 17:52:00')),
+			'updated_at' => new \MongoDate(strtotime('2012-09-02 17:58:33'))
 		]);
 		$result = $this->message->updated_at($message);
-		$expected  = 'Posted 3 days ago, updated 15 minutes later';
-		$this->assertEqual($expected, $result);
-
-		$message = Messages::create([
-			'created_at' => new \MongoDate(strtotime('-3 days')),
-			'updated_at' => new \MongoDate(strtotime('-3 days -1 hour -30 minutes -2 seconds'))
-		]);
-		$result = $this->message->updated_at($message);
-		$expected  = 'Posted on ' . date('M d', strtotime('-3 day'));
-		$expected .= ', updated 15 minutes later';
+		$expected  = 'Posted on ' . date('M d', strtotime('2012-09-02'));
+		$expected .= ', updated 6 minutes later';
 		$this->assertEqual($expected, $result);
 	}
 }

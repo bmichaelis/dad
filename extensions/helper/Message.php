@@ -16,7 +16,7 @@ class Message extends \lithium\template\Helper {
 		$time = $this->_context->time;
 
 		$created_at = $time->to('words', $message->created_at->sec, ['end' => '+2 days', 'format' => 'M d']);
-		$updated_at = $time->to('words', $message->updated_at->sec, ['now' => date('Y-m-d H:i', $message->created_at->sec)]);
+		$updated_at = $time->to('words', date('Y-m-d H:i', $message->updated_at->sec), ['now' => date('Y-m-d H:i', $message->created_at->sec)]);
 
 		if (!$updated_at) {
 			return String::insert($this->_strings['created_at'], compact('created_at'));
