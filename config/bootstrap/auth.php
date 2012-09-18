@@ -44,17 +44,13 @@ Dispatcher::applyFilter('_callable', function($self, $params, $chain) {
 
 
 Filters::apply('dad\models\People', 'save', function($self, $params, $chain){
-	$entity = $params['entity'];
+	$entity = &$params['entity'];
 
 	if (!empty($params['data'])) {
 		$entity->set($params['data']);
 	}
 
-	if (!$entity->exists()) {
-		$entity->password = Password::hash($entity->password);
-	}
-
-	$params['entity'] = $entity;
+	$entity->password = Password::hash($entity->password);
 
 	return $chain->next($self, $params, $chain);
 });
