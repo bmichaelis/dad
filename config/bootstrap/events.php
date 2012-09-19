@@ -16,7 +16,7 @@ use li3_activities\core\Activity;
  * @see lithium\util\String::insert()
  */
 Activity::events(array(
-	'saved' => '{:actor} {:verb} a {:object}.',
+	'saved' => '{:actor.name} {:verb} a {:object.type}.',
 	// 'action' => '{:controller}::{:action} called',
 ));
 
