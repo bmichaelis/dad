@@ -15,10 +15,9 @@ use li3_activities\core\Activity;
  * @see li3_activities\core\Activity
  * @see lithium\util\String::insert()
  */
-Activity::events(array(
-	'saved' => '{:actor.name} {:verb} a {:object.type}.',
-	// 'action' => '{:controller}::{:action} called',
-));
+Activity::events([
+	'saved' => '{:actor.name} {:verb} a {:object.type}: {:object.name}.'
+]);
 
 /**
  * Here we filter our-self into the whole application to
@@ -28,11 +27,11 @@ Activity::events(array(
  * @see li3_activities\core\Activity
  */
 
-/**
- * Write an Activity for any Model::save().
- */
 use lithium\util\collection\Filters;
 
+/**
+ * Tracks Discussions events
+ */
 Filters::apply('dad\models\Discussions', 'save', function($self, $params, $chain) {
 	$discussion = &$params['entity'];
 	$data = [
@@ -43,8 +42,15 @@ Filters::apply('dad\models\Discussions', 'save', function($self, $params, $chain
 		],
 		'verb'    => ($discussion->exists()) ? 'updated' : 'posted',
 		'object'  => [
-			'type' => 'discussion'
+			'type' => 'discussion',
+			'name' => $discussion->subject
+		],
+		'target' => [
+			'type' => 'project',
+			'name' => $discussion->project()->name,
+			'id'   => (string) $discussion->project()->_id
 		]
+
 	];
 	if (!$result = $chain->next($self, $params, $chain)) {
 		return false;
@@ -55,12 +61,33 @@ Filters::apply('dad\models\Discussions', 'save', function($self, $params, $chain
 });
 
 /**
- * Track all calls to Dispatcher and log Activity about called Controller::action.
+ * Tracks Projects creation event
  */
-// lithium\action\Dispatcher::applyFilter('run', function($self, $params, $chain) {
-// 	$result = $chain->next($self, $params, $chain);
-// 	Activity::action($params['request']->params);
-// 	return $result;
-// });
+Filters::apply('dad\models\Projects', 'save', function($self, $params, $chain) {
+	$project = &$params['entity'];
+
+	if (!$project->exists()) {
+		$data = [
+			'actor'   => [
+				'type' => 'person',
+				'name' => $project->creator->name,
+				'id'   => $project->creator->id
+			],
+			'verb'    => 'created',
+			'object'  => [
+				'type' => 'project',
+				'name' => $project->name
+			]
+		];
+		if (!$result = $chain->next($self, $params, $chain)) {
+			return false;
+		}
+		$data['object']['id'] = (string) $project->{$project->key()};
+		Activity::track('saved', $data);
+		return $result;
+	}
+
+	return $chain->next($self, $params, $chain);
+});
 
 ?>
