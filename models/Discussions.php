@@ -53,21 +53,30 @@ class Discussions extends \dad\extensions\data\BaseModel {
 	}
 
 	public function push_message($discussion, $message) {
+		$self = static::_object();
+
 		$defaults = [
 			'id' => String::uuid(),
 			'created_at' => new \MongoDate(),
 			'updated_at' => new \MongoDate()
 		];
 		$message_data = $message->data() + $defaults;
+		$params = compact('discussion', 'message_data');
 
-		$query = ['$push' => ['messages' => $message_data]];
-		$conditions = ['_id' => $discussion->_id];
+		$filter = function($self, $params) {
+			$discussion = $params['discussion'];
+			$message_data = $params['message_data'];
 
-		if (!Discussions::update($query, $conditions)) {
-			return false;
-		}
+			$query = ['$push' => ['messages' => $message_data]];
+			$conditions = ['_id' => $discussion->_id];
 
-		return true;
+			if (!Discussions::update($query, $conditions)) {
+				return false;
+			}
+			return true;
+		};
+
+		return static::_filter(__FUNCTION__, $params, $filter);
 	}
 
 	public function pull_message($discussion, $message) {
