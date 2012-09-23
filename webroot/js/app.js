@@ -20,4 +20,12 @@
     });
   }
 
+
+	$("[data-behavior~=expandable]").live("click", function(){
+		$(this).find('.collapsed_content').hide();
+		$(this).find('.expanded_content').show();
+
+		return false;
+	});
+
 })(jQuery, this);
