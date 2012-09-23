@@ -18,7 +18,7 @@ use li3_activities\core\Activity;
 Activity::events([
 	'saved_discussion' => '{:actor.name} {:verb} a {:object.type}: {:object.name}.',
 	'saved_message' => '{:actor.name} {:verb} a message on: {:target.name}',
-	'saved_project' => '{:actor.name} {:verb} a {:object.type}: {:object.name}.'
+	'saved_project' => '{:actor.name} {:verb} the {:object.type}: {:object.name}.'
 ]);
 
 /**

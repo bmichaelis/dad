@@ -18,7 +18,7 @@ class Activities extends \lithium\data\Model {
 	);
 
 	protected $_query = array(
-		'order' => array('created_at' => 'DESC'),
+		'order' => array('created_at' => -1),
 	);
 
 	/**
@@ -32,7 +32,7 @@ class Activities extends \lithium\data\Model {
 		static::applyFilter('save', function ($self, $params, $chain) {
 			$entity = &$params['entity'];
 			if (!$entity->exists()) {
-				$entity->created_at = date(DATE_ATOM);
+				$entity->created_at = new \MongoDate();
 			}
 			$entity->message = Activity::message($entity->type, $entity->data->data());
 			return $chain->next($self, $params, $chain);
