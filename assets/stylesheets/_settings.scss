@@ -79,3 +79,17 @@ $tapToCloseFontWeight: normal;
 $tapToCloseFontColor: #888;
 $tooltipFontSizeScreenSmall: 14;
 $tooltipBackgroundOpacityScreenSmall: 0.85;
+
+// Top Bar Settings
+$topBarBgColor: #222;
+$topBarHeight: 45px;
+$topBarBtmMargin: 40px;
+$topBarTitleWeight: bold;
+$topBarTitleSize: ms(1);
+$topBarLinkColor: $white;
+$topBarLinkWeight: bold;
+$topBarLinkSize: ms(0) - 1;
+$topBarDropToggleSize: 5px;
+$topBarSearchWidth: 200px;
+$topBarBreakPoint: 940px; // Change to 9999px for always mobile layout
+$topBarNavToggleSize: 8px;

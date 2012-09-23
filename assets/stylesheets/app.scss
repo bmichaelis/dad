@@ -1,10 +1,11 @@
+@import "modular-scale";
+
 @import "settings";
 
 @import "compass/css3";
 @import "foundation/settings";
 @import "foundation/functions/all";
 @import "foundation/mixins/all";
-@import "modular-scale";
 @import "foundation/common/globals";
 @import "foundation/common/typography";
 
@@ -16,10 +17,11 @@
 @import "foundation/components/modules/reveal";
 @import "foundation/components/modules/offcanvas";
 
-@import "_icons";
-@import "_forms";
-@import "_buttons";
-@import "_wysihtml5";
+@import "icons";
+@import "forms";
+@import "buttons";
+@import "topbar";
+@import "wysihtml5";
 
 @import "people";
 @import "projects";

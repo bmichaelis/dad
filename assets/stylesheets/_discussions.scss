@@ -23,7 +23,7 @@
 	}
 	div.creator-avatar img {
 		height: 52px;
-		border-radius: 100px;
+		@include border-radius(100px);
 	}
 	.formatted-content {
 		font-size: ms(0);
