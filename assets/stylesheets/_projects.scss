@@ -1,11 +1,6 @@
 // project list
 ul#projects-list {
 	list-style: none;
-
-	li:first-child h4 {
-		margin-top: 0px;
-	}
-
 	header {
 		h4 {
 			margin-bottom: 0px;
@@ -31,7 +26,7 @@ ul#projects-list {
 
 // add & edit
 div.projects-nav {
-	margin-bottom: 16px;
+	margin: 16px 0;
 }
 
 div.project-examples {

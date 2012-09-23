@@ -24,16 +24,38 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="app">
-	<div class="row">
-		<div class="twelve columns">
-		<h3><?= $this->html->link('DAD', '/') ?></h3>
-			<hr />
-		</div>
+
+	<div class="contain-to-grid">
+		<nav class="top-bar">
+			<ul>
+				<li class="name"><h1><a href="/">DAD</a></h1></li>
+				<li class="toggle-nav"><a href="#"></a></li>
+			</ul>
+			<section>
+				<ul class="right">
+					<?php if ($current_user): ?>
+					<li class="divider"></li>
+					<li class="has-dropdown">
+					<a href="#">
+						<?= $this->gravatar->image($current_user->gravatar_email, [
+							'default' => '/img/john_doe_avatar.png',
+							'size' => 30,
+							'class' => 'avatar'
+						]) ?>
+					</a>
+					<ul class="dropdown">
+					<li><?= $this->html->link('Profile', ['People::edit', 'id' => $current_user->_id]) ?></li>
+						<li class="divider"></li>
+						<li><a href="/signout">Sign out</a></li>
+					</ul>
+					</li>
+					<?php endif; ?>
+				</ul>
+			</section>
+		</nav>
 	</div>
 
-	<div class="row">
-		<?= $this->flashMessage->output(); ?>
-	</div>
+	<?= $this->flashMessage->output(); ?>
 
 	<div class="row">
 		<?php echo $this->content(); ?>
@@ -47,6 +69,7 @@
 			'jquery.foundation.alerts.js',
 			'jquery.foundation.buttons.js',
 			'jquery.foundation.navigation.js',
+			'jquery.foundation.topbar.js',
 			'jquery.foundation.forms.js',
 			'jquery.foundation.tabs.js',
 			'jquery.foundation.tooltips.js',
