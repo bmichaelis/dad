@@ -1,6 +1,6 @@
-<div id="wysihtml5-toolbar" style="display: none;">
-	<a data-wysihtml5-command="bold"><b>Bold</b></a> |
-	<a data-wysihtml5-command="italic"><i>Italic</i></a> |
-	<a data-wysihtml5-command="insertUnorderedList">Bullets</a> |
-	<a data-wysihtml5-command="insertOrderedList">Numbers</a>
-</div>
+<ul id="wysihtml5-toolbar" class="button-group" style="display: none;">
+	<li><a class="button secondary tiny" data-wysihtml5-command="bold">Bold</a></li>
+	<li><a class="button secondary tiny" data-wysihtml5-command="italic">Italic</a></li>
+	<li><a class="button secondary tiny" data-wysihtml5-command="insertUnorderedList">Bullets</a></li>
+	<li><a class="button secondary tiny" data-wysihtml5-command="insertOrderedList">Numbers</a></li>
+</ul>

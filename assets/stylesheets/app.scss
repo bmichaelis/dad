@@ -16,9 +16,12 @@
 @import "foundation/components/modules/reveal";
 @import "foundation/components/modules/offcanvas";
 
+@import "_icons";
 @import "_forms";
 @import "_buttons";
+@import "_wysihtml5";
 
 @import "people";
 @import "projects";
 @import "discussions";
+@import "messages";

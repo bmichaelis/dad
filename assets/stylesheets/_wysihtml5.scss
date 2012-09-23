@@ -1,0 +1,21 @@
+ul#wysihtml5-toolbar .button {
+	background-color: $white;
+}
+
+ul#wysihtml5-toolbar a[data-wysihtml5-command=bold] {
+	font-weight: bold;
+}
+
+ul#wysihtml5-toolbar a[data-wysihtml5-command=italic] {
+	font-style: italic;
+}
+
+ul#wysihtml5-toolbar a[data-wysihtml5-command=insertUnorderedList] {
+	padding-left: 30px;
+	background: url('/img/toolbar_icons.png') no-repeat 9px 2px;
+}
+
+ul#wysihtml5-toolbar a[data-wysihtml5-command=insertOrderedList] {
+	padding-left: 30px;
+	background: url('/img/toolbar_icons.png') no-repeat 10px -16px;
+}
