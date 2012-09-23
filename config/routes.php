@@ -50,4 +50,9 @@ Router::connect($discussions_path . '/messages/{:id}/edit' , ['Messages::edit'  
 Router::connect($discussions_path . '/messages/{:id}'      , ['Messages::update' , 'http:method' => 'PUT']);
 Router::connect($discussions_path . '/messages/{:id}'      , ['Messages::delete' , 'http:method' => 'DELETE']);
 
+/**
+ * Activities routes
+ */
+Router::connect('/progress', ['Activities::index']);
+
 ?>

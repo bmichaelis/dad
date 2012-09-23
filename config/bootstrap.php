@@ -86,4 +86,9 @@ if (PHP_SAPI === 'cli') {
  */
 require __DIR__ . '/bootstrap/validators.php';
 
+/**
+ * This file defines custom event types for activity feed
+ */
+require __DIR__ . '/bootstrap/events.php';
+
 ?>
