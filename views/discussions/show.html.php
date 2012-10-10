@@ -54,3 +54,18 @@
 	</footer>
 </article>
 </div>
+
+<script type="text/javascript">
+window.onload = function() {
+	// show all images in the discussion
+	var links = $(".formatted-content a");
+	links.each(function(key, link) {
+		var href = $(link).attr('href');
+		if (href.match(/(jpg|jpeg|png|gif)$/) !== null) {
+			var p = $(link).parent();
+			var content = '<a href="'+href+'" target="_blank"><img src='+href+'></a>';
+			$(p).html(content);
+		}
+	})
+}
+</script>
