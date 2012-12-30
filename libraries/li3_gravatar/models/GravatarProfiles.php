@@ -1,4 +1,10 @@
 <?php
+/**
+ * li3_gravatar plugin for Lithium: the most rad php framework.
+ *
+ * @copyright     Copyright 2011, Michael Hüneburg
+ * @license       http://opensource.org/licenses/bsd-license.php The BSD License
+ */
 
 namespace li3_gravatar\models;
 
@@ -10,14 +16,14 @@ namespace li3_gravatar\models;
  * information and use it in your application.
  *
  * Example:
- *
+ * 
  * {{{
  * $profile = GravatarProfiles::fetch('john@example.org');
  * }}}
  *
- * The model uses Lithium's `Service` class to make requests to Gravatar. You can configure the class,
+ * The model uses Lithium's `Service` class to make requests to Gravatar. You can configure the class, 
  * for example to use a different socket adapter:
- *
+ * 
  * {{{
  * GravatarProfiles::config(array(
  *     'service' => array('socket' => 'Curl')
@@ -28,7 +34,7 @@ namespace li3_gravatar\models;
  * @see lithium\net\http\Service
  */
 class GravatarProfiles extends \lithium\data\Model {
-
+	
 	/**
 	 * Class dependencies.
 	 *
@@ -37,7 +43,7 @@ class GravatarProfiles extends \lithium\data\Model {
 	protected static $_classes = array(
 		'service' => 'lithium\net\http\Service'
 	);
-
+	
 	/**
 	 * Meta information.
 	 *
@@ -46,7 +52,7 @@ class GravatarProfiles extends \lithium\data\Model {
 	protected $_meta = array(
 		'connection' => false
 	);
-
+	
 	/**
 	 * Configures this model and the `Service` class.
 	 *
@@ -61,7 +67,7 @@ class GravatarProfiles extends \lithium\data\Model {
 		$config = array_merge_recursive($defaults,  $config);
 		parent::config($config);
 	}
-
+	
 	/**
 	 * Hashes an email address for usage in a Gravatar request.
 	 *
@@ -71,7 +77,7 @@ class GravatarProfiles extends \lithium\data\Model {
 	public static function hash($email) {
 		return md5(strtolower(trim($email)));
 	}
-
+	
 	/**
 	 * Reads a public profile from Gravatar.
 	 *
@@ -90,7 +96,7 @@ class GravatarProfiles extends \lithium\data\Model {
 		}
 		return false;
 	}
-
+	
 	/**
 	 * Retrieves the profile data from Gravatar.
 	 *

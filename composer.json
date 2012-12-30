@@ -1,0 +1,43 @@
+{
+    "name": "mehlah/dad",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "mehlah/li3_rest",
+                "version": "master",
+                "source": {
+                    "url": "git://github.com/mehlah/li3_rest.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "type": "lithium-library"
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "michaelhue/li3_gravatar",
+                "version": "master",
+                "source": {
+                    "url": "git://github.com/michaelhue/li3_gravatar.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "type": "lithium-library"
+            }
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mehlah/li3_time_helper.git"
+        }
+    ],
+    "require": {
+        "unionofrad/lithium": "0.11",
+        "daschl/li3_server": "dev-master",
+        "michaelhue/li3_gravatar": "dev-master",
+        "mehlah/li3_rest": "dev-master",
+	"mehlah/li3_time_helper": "dev-master",
+        "composer/installers": "dev-master"
+    }
+}
