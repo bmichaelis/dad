@@ -1,5 +1,5 @@
 {
-    "hash": "3807122a6a251e7f3a8c595c23ed072c",
+    "hash": "f1d0804d1451e497a4fb8d0098569651",
     "packages": [
         {
             "name": "UnionOfRAD/lithium",
@@ -191,17 +191,17 @@
             ]
         },
         {
-            "name": "mehlah/li3_faker",
+            "name": "mehlah/li3_populator",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mehlah/li3_faker",
-                "reference": "54df2f49d70e010be394c8785e2e3dcbf2816564"
+                "url": "https://github.com/mehlah/li3_populator",
+                "reference": "a8c77fd4a43570e4b331ad83652352e5c09e794a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/mehlah/li3_faker/archive/54df2f49d70e010be394c8785e2e3dcbf2816564.zip",
-                "reference": "54df2f49d70e010be394c8785e2e3dcbf2816564",
+                "url": "https://github.com/mehlah/li3_populator/archive/a8c77fd4a43570e4b331ad83652352e5c09e794a.zip",
+                "reference": "a8c77fd4a43570e4b331ad83652352e5c09e794a",
                 "shasum": ""
             },
             "require": {
@@ -212,7 +212,7 @@
                 "UnionOfRAD/lithium": "Lithium is required for this plugin.",
                 "fzaninotto/faker": "Faker is a PHP library that generates fake data for you."
             },
-            "time": "2012-12-30 19:26:54",
+            "time": "2012-12-30 20:11:15",
             "type": "lithium-library",
             "installation-source": "source",
             "notification-url": "https://packagist.org/downloads/",
@@ -225,7 +225,7 @@
                     "email": "mehdi@lahmam.com"
                 }
             ],
-            "description": "Lithium ORM/ODM Populator for Faker",
+            "description": "Populate a database with mass insertion",
             "keywords": [
                 "faker",
                 "fixtures"
@@ -323,7 +323,7 @@
         "michaelhue/li3_gravatar": 20,
         "mehlah/li3_rest": 20,
         "mehlah/li3_time_helper": 20,
-        "mehlah/li3_faker": 20,
+        "mehlah/li3_populator": 20,
         "composer/installers": 20
     }
 }

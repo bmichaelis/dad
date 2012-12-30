@@ -25,7 +25,7 @@
         "michaelhue/li3_gravatar": "dev-master",
         "mehlah/li3_rest": "dev-master",
 	"mehlah/li3_time_helper": "dev-master",
-        "mehlah/li3_faker": "dev-master",
+        "mehlah/li3_populator": "dev-master",
         "composer/installers": "dev-master"
     }
 }
