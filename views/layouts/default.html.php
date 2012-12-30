@@ -72,7 +72,6 @@
 			'jquery.foundation.navigation.js',
 			'jquery.foundation.topbar.js',
 			'jquery.foundation.forms.js',
-			'jquery.foundation.tabs.js',
 			'jquery.foundation.tooltips.js',
 			'wysihtml5-parser-rules.js',
 			'wysihtml5-0.3.0.min.js',

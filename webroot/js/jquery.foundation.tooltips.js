@@ -1,5 +1,5 @@
 /*
- * jQuery Foundation Tooltips 2.0.1
+ * jQuery Foundation Tooltips 2.0.2
  * http://foundation.zurb.com
  * Copyright 2012, ZURB
  * Free to use under the MIT license.
@@ -13,7 +13,8 @@
 
   var settings = {
       bodyHeight : 0,
-      targetClass : '.has-tip',
+      selector : '.has-tip',
+      additionalInheritableClasses : [],
       tooltipClass : '.tooltip',
       tipTemplate : function (selector, content) {
         return '<span data-selector="' + selector + '" class="' + settings.tooltipClass.substring(1) + '">' + content + '<span class="nub"></span></span>';
@@ -23,11 +24,14 @@
       init : function (options) {
         settings = $.extend(settings, options);
 
+        // alias the old targetClass option
+        settings.selector = settings.targetClass ? settings.targetClass : settings.selector;
+
         return this.each(function () {
           var $body = $('body');
 
           if (Modernizr.touch) {
-            $body.on('click.tooltip touchstart.tooltip touchend.tooltip', settings.targetClass, function (e) {
+            $body.on('click.tooltip touchstart.tooltip touchend.tooltip', settings.selector, function (e) {
               e.preventDefault();
               $(settings.tooltipClass).hide();
               methods.showOrCreateTip($(this));
@@ -37,7 +41,7 @@
               $(this).fadeOut(150);
             });
           } else {
-            $body.on('mouseenter.tooltip mouseleave.tooltip', settings.targetClass, function (e) {
+            $body.on('mouseenter.tooltip mouseleave.tooltip', settings.selector, function (e) {
               var $this = $(this);
 
               if (e.type === 'mouseenter') {
@@ -52,13 +56,13 @@
 
         });
       },
-      showOrCreateTip : function ($target) {
+      showOrCreateTip : function ($target, content) {
         var $tip = methods.getTip($target);
 
         if ($tip && $tip.length > 0) {
           methods.show($target);
         } else {
-          methods.create($target);
+          methods.create($target, content);
         }
       },
       getTip : function ($target) {
@@ -80,8 +84,9 @@
         }
         return (id) ? id : dataSelector;
       },
-      create : function ($target) {
-        var $tip = $(settings.tipTemplate(methods.selector($target), $('<div>').text($target.attr('title')).html())),
+      create : function ($target, content) {
+        var $tip = $(settings.tipTemplate(methods.selector($target),
+          $('<div>').html(content ? content : $target.attr('title')).html())),
           classes = methods.inheritable_classes($target);
 
         $tip.addClass(classes).appendTo('body');
@@ -124,15 +129,15 @@
           tip.width(column.outerWidth() - 25).css('left', 15).addClass('tip-override');
           objPos(nub, -nubHeight, 'auto', 'auto', target.offset().left);
         } else {
-          if (classes.indexOf('tip-top') > -1) {
+          if (classes && classes.indexOf('tip-top') > -1) {
             objPos(tip, (target.offset().top - tip.outerHeight() - nubHeight), 'auto', 'auto', target.offset().left, width)
               .removeClass('tip-override');
             objPos(nub, 'auto', 'auto', -nubHeight, 'auto');
-          } else if (classes.indexOf('tip-left') > -1) {
+          } else if (classes && classes.indexOf('tip-left') > -1) {
             objPos(tip, (target.offset().top + (target.outerHeight() / 2) - nubHeight), 'auto', 'auto', (target.offset().left - tip.outerWidth() - 10), width)
               .removeClass('tip-override');
             objPos(nub, (tip.outerHeight() / 2) - (nubHeight / 2), -nubHeight, 'auto', 'auto');
-          } else if (classes.indexOf('tip-right') > -1) {
+          } else if (classes && classes.indexOf('tip-right') > -1) {
             objPos(tip, (target.offset().top + (target.outerHeight() / 2) - nubHeight), 'auto', 'auto', (target.offset().left + target.outerWidth() + 10), width)
               .removeClass('tip-override');
             objPos(nub, (tip.outerHeight() / 2) - (nubHeight / 2), 'auto', 'auto', -nubHeight);
@@ -141,12 +146,13 @@
         tip.css('visibility', 'visible').hide();
       },
       inheritable_classes : function (target) {
-        var inheritables = ['tip-top', 'tip-left', 'tip-bottom', 'tip-right', 'noradius'],
-          filtered = $.map(target.attr('class').split(' '), function (el, i) {
-            if ($.inArray(el, inheritables) !== -1) {
-              return el;
-            }
-          }).join(' ');
+        var inheritables = ['tip-top', 'tip-left', 'tip-bottom', 'tip-right', 'noradius'].concat(settings.additionalInheritableClasses),
+          classes = target.attr('class'),
+          filtered = classes ? $.map(classes.split(' '), function (el, i) {
+              if ($.inArray(el, inheritables) !== -1) {
+                return el;
+              }
+          }).join(' ') : '';
 
         return $.trim(filtered);
       },
@@ -169,9 +175,9 @@
       destroy : function () {
         return this.each(function () {
           $(window).off('.tooltip');
-          $(settings.targetClass).off('.tooltip');
+          $(settings.selector).off('.tooltip');
           $(settings.tooltipClass).each(function (i) {
-            $($(settings.targetClass).get(i)).attr('title', $(this).text());
+            $($(settings.selector).get(i)).attr('title', $(this).text());
           }).remove();
         });
       }
