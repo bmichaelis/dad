@@ -2,4 +2,6 @@
 
 .button {
   border: none;
+  @include box-shadow(0 3px 0 0 darken($mainColor, 10%));
+  @include text-shadow(0 1px 0 rgba(0, 0, 0, 0.15));
 }

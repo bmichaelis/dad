@@ -1,5 +1,6 @@
 ul#wysihtml5-toolbar .button {
   background-color: $white;
+  @include box-shadow(none);
 }
 
 ul#wysihtml5-toolbar a[data-wysihtml5-command=bold] {
