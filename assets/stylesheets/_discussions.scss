@@ -1,33 +1,33 @@
 // discussion view
 
 .discussion {
-	article > header {
-		h3 {
-			margin-bottom: 0px;
-		}
-		div {
-			color: $brown;
-			font-size: ms(0);
-			line-height: 1.6;
-			margin-bottom: ms(1);
-			nav {
-				display: inline;
-				margin-left: 6px;
-				a {
-					color: $brown;
-					text-decoration: underline;
-					&:hover { color: $orange; }
-				}
-			}
-		}
-	}
-	div.creator-avatar img {
-		height: 52px;
-		@include border-radius(100px);
-	}
-	.formatted-content {
-		font-size: ms(0);
-		line-height: 1.6;
-		margin-bottom: ms(1)
-	}
+  article > header {
+    h3 {
+      margin-bottom: 0px;
+    }
+    div {
+      color: $brown;
+      font-size: ms(0);
+      line-height: 1.6;
+      margin-bottom: ms(1);
+      nav {
+        display: inline;
+        margin-left: 6px;
+        a {
+          color: $brown;
+          text-decoration: underline;
+          &:hover { color: $orange; }
+        }
+      }
+    }
+  }
+  div.creator-avatar img {
+    height: 52px;
+    @include border-radius(100px);
+  }
+  .formatted-content {
+    font-size: ms(0);
+    line-height: 1.6;
+    margin-bottom: ms(1)
+  }
 }

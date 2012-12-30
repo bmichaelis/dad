@@ -1,16 +1,16 @@
 @import "foundation/components/modules/topbar";
 
 .contain-to-grid {
-	margin-bottom: $topBarBtmMargin;
+  margin-bottom: $topBarBtmMargin;
 }
 
 .top-bar {
-	img.avatar {
-		width: 30px;
-		height: 30px;
-		vertical-align: middle;
-		margin-top: -5px;
-		border: solid 2px #fff;
-		@include border-radius(100px);
-	}
+  img.avatar {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-top: -5px;
+    border: solid 2px #fff;
+    @include border-radius(100px);
+  }
 }

@@ -1,92 +1,92 @@
 // project list
 ul#projects-list {
-	list-style: none;
-	header {
-		h4 {
-			margin-bottom: 0px;
-		}
-		a {
-			color: $headerFontColor;
-			&:hover {
-				color: $mainColor;
-			}
-		}
+  list-style: none;
+  header {
+    h4 {
+      margin-bottom: 0px;
+    }
+    a {
+      color: $headerFontColor;
+      &:hover {
+        color: $mainColor;
+      }
+    }
 
-		p {
-			color: $brown;
-			word-wrap: break-word;
-			margin-bottom: 5px;
-		}
+    p {
+      color: $brown;
+      word-wrap: break-word;
+      margin-bottom: 5px;
+    }
 
-		p + p {
-			font-size: 12px;
-		}
-	}
+    p + p {
+      font-size: 12px;
+    }
+  }
 }
 
 // add & edit
 div.projects-nav {
-	margin: 16px 0;
+  margin: 16px 0;
 }
 
 div.project-examples {
-	h6 {
-		font-size: 14px;
-		color: $orange;
-	}
-	h5 {
-		margin-bottom: 0px;
-	}
-	p {
-		font-size: 14px;
-		color: $brown;
-	}
+  h6 {
+    font-size: 14px;
+    color: $orange;
+  }
+  h5 {
+    margin-bottom: 0px;
+  }
+  p {
+    font-size: 14px;
+    color: $brown;
+  }
 
-	margin-top: 17px;
-	border-left: 1px solid #ddd;
+  margin-top: 17px;
+  border-left: 1px solid #ddd;
 }
 
 // project view
 .project {
-	header {
-		h3 { margin-bottom: 0; }
-		p { color: $brown; }
-	}
-	#discussions-list {
-		h5 a {
-			margin: 0 8px;
-		}
-		ul {
-			a {
-				color: $txtColor;
-				&:hover {
-					color: $orange;
-					text-decoration: underline;
-				}
-			}
-			li {
-				padding-top: 17px;
-				border-bottom: 1px solid #eee;
-				&:last-child { border-bottom: none; }
-				.creator {
-					.creator-avatar img {
-						margin: -8px 8px 0 0;
-						vertical-align: top;
-						height: 40px;
-						width: 40px;
-						border-radius: 100px;
-					}
-				}
-			}
-			list-style: none;
-		}
-		.label {
-			&.updated_at {
-				color: $brown;
-				background-color: #fff;
-				font-weight: 500;
-			}
-		}
-		margin-top: 32px;
-	}
+  header {
+    h3 { margin-bottom: 0; }
+    p { color: $brown; }
+  }
+  #discussions-list {
+    h5 a {
+      margin: 0 8px;
+    }
+    ul {
+      a {
+        color: $txtColor;
+        &:hover {
+          color: $orange;
+          text-decoration: underline;
+        }
+      }
+      li {
+        padding-top: 17px;
+        border-bottom: 1px solid #eee;
+        &:last-child { border-bottom: none; }
+        .creator {
+          .creator-avatar img {
+            margin: -8px 8px 0 0;
+            vertical-align: top;
+            height: 40px;
+            width: 40px;
+            border-radius: 100px;
+          }
+        }
+      }
+      list-style: none;
+    }
+    .label {
+      &.updated_at {
+        color: $brown;
+        background-color: #fff;
+        font-weight: 500;
+      }
+    }
+    margin-top: 32px;
+  }
 }
