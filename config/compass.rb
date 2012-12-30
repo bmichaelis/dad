@@ -1,5 +1,6 @@
 require "rubygems"
 require "bundler/setup"
+require "sass-globbing"
 require "zurb-foundation"
 
 sass_dir              = "assets/stylesheets"

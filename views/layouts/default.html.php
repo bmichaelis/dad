@@ -12,7 +12,7 @@
 	<?php
 		echo $this->html->style([
 			'debug.css',
-			'app.css'
+			'application.css'
 		]);
 
 		echo $this->html->script([

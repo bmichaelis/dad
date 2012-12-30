@@ -12,6 +12,8 @@ GEM
       sassy-math (>= 1.2)
     rake (10.0.3)
     sass (3.2.4)
+    sass-globbing (1.0.0)
+      sass (>= 3.1)
     sassy-math (1.2)
       compass (~> 0.11)
     zurb-foundation (3.2.3)
@@ -24,4 +26,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  sass-globbing
   zurb-foundation (= 3.2.3)
