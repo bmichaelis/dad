@@ -1,5 +1,5 @@
 {
-    "hash": "a88f5d10808c57554d4d0c1f4d77e4db",
+    "hash": "3807122a6a251e7f3a8c595c23ed072c",
     "packages": [
         {
             "name": "UnionOfRAD/lithium",
@@ -145,6 +145,93 @@
             "homepage": "https://github.com/daschl/li3_server"
         },
         {
+            "name": "fzaninotto/faker",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker",
+                "reference": "v1.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/fzaninotto/Faker/archive/v1.1.0.zip",
+                "reference": "v1.1.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2012-10-29 02:32:06",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Faker": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "faker",
+                "fixtures",
+                "data"
+            ]
+        },
+        {
+            "name": "mehlah/li3_faker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mehlah/li3_faker",
+                "reference": "54df2f49d70e010be394c8785e2e3dcbf2816564"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/mehlah/li3_faker/archive/54df2f49d70e010be394c8785e2e3dcbf2816564.zip",
+                "reference": "54df2f49d70e010be394c8785e2e3dcbf2816564",
+                "shasum": ""
+            },
+            "require": {
+                "fzaninotto/faker": "1.1.*",
+                "composer/installers": "*"
+            },
+            "suggest": {
+                "UnionOfRAD/lithium": "Lithium is required for this plugin.",
+                "fzaninotto/faker": "Faker is a PHP library that generates fake data for you."
+            },
+            "time": "2012-12-30 19:26:54",
+            "type": "lithium-library",
+            "installation-source": "source",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mehdi Lahmam B.",
+                    "email": "mehdi@lahmam.com"
+                }
+            ],
+            "description": "Lithium ORM/ODM Populator for Faker",
+            "keywords": [
+                "faker",
+                "fixtures"
+            ]
+        },
+        {
             "name": "mehlah/li3_rest",
             "version": "master",
             "source": {
@@ -236,6 +323,7 @@
         "michaelhue/li3_gravatar": 20,
         "mehlah/li3_rest": 20,
         "mehlah/li3_time_helper": 20,
+        "mehlah/li3_faker": 20,
         "composer/installers": 20
     }
 }

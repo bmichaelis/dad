@@ -2,7 +2,7 @@
 
 namespace dad\extensions\command;
 
-use Faker\Factory;
+use faker\Factory;
 use li3_faker\extensions\adapter\ORM\Lithium\Populator;
 
 use lithium\core\Libraries;

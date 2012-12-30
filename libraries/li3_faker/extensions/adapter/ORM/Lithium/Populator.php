@@ -8,7 +8,6 @@ use li3_faker\extensions\adapter\ORM\Lithium\EntityPopulator;
 class Populator {
 
 	protected $_generator;
-	protected $_manager;
 	protected $_entities = array();
 	protected $_quantities = array();
 

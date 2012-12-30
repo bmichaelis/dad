@@ -1,5 +1,10 @@
 <?php
 
-require_once dirname(__DIR__) . '/libraries/Faker/src/autoload.php';
+use lithium\core\Libraries;
+
+Libraries::add('faker', array(
+	'path' => 'vendor/fzaninotto/faker',
+	'bootstrap' => '/src/autoload.php'
+));
 
 ?>
