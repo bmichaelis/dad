@@ -1,5 +1,5 @@
 {
-    "hash": "f1d0804d1451e497a4fb8d0098569651",
+    "hash": "0ff0ca75db7152d87fc1ad6a0f34cf30",
     "packages": [
         {
             "name": "UnionOfRAD/lithium",
@@ -276,6 +276,43 @@
             }
         },
         {
+            "name": "michaelhue/li3_flash_message",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/michaelhue/li3_flash_message.git",
+                "reference": "618e44c69099b9df5cf154b646363c5ad619690b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/michaelhue/li3_flash_message/archive/618e44c69099b9df5cf154b646363c5ad619690b.zip",
+                "reference": "618e44c69099b9df5cf154b646363c5ad619690b",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*"
+            },
+            "suggest": {
+                "UnionOfRAD/lithium": "Lithium is required for this plugin."
+            },
+            "time": "2012-12-05 11:57:11",
+            "type": "lithium-library",
+            "installation-source": "source",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Hüneburg",
+                    "email": "hello@michaelhue.com",
+                    "homepage": "http://michaelhue.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The Flash Message plugin  for Lithium provides a straightforward interface for displaying status messages to the user."
+        },
+        {
             "name": "michaelhue/li3_gravatar",
             "version": "dev-master",
             "source": {
@@ -321,6 +358,7 @@
     "stability-flags": {
         "daschl/li3_server": 20,
         "michaelhue/li3_gravatar": 20,
+        "michaelhue/li3_flash_message": 20,
         "mehlah/li3_rest": 20,
         "mehlah/li3_time_helper": 20,
         "mehlah/li3_populator": 20,

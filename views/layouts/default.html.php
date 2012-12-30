@@ -56,7 +56,7 @@
 		</nav>
 	</div>
 
-	<?= $this->flashMessage->output(); ?>
+	<?= $this->flashMessage->show(); ?>
 
 	<div class="row">
 		<?php echo $this->content(); ?>
