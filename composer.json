@@ -15,19 +15,6 @@
             }
         },
         {
-            "type": "package",
-            "package": {
-                "name": "michaelhue/li3_gravatar",
-                "version": "master",
-                "source": {
-                    "url": "git://github.com/michaelhue/li3_gravatar.git",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "type": "lithium-library"
-            }
-        },
-        {
             "type": "vcs",
             "url": "https://github.com/mehlah/li3_time_helper.git"
         }
