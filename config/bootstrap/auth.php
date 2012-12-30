@@ -38,7 +38,7 @@ Dispatcher::applyFilter('_callable', function($self, $params, $chain) {
 	}
 
 	return function() use($request) {
-		return new Response(compact('request') + ['location' => 'Sessions::add']);
+		return new Response(compact('request') + ['location' => 'Sessions::add', 'status' => 302]);
 	};
 });
 
