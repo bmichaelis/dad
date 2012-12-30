@@ -125,6 +125,5 @@ Libraries::add('li3_gravatar');
 Libraries::add('li3_activities');
 
 Libraries::add('li3_server');
-Libraries::add('li3_quality');
 
 ?>

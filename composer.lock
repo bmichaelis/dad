@@ -1,0 +1,216 @@
+{
+    "hash": "ddf7490942ddd6b1d63edbf1fe2edf87",
+    "packages": [
+        {
+            "name": "UnionOfRAD/lithium",
+            "version": "0.11",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/UnionOfRAD/lithium.git",
+                "reference": "lithium-0.11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/UnionOfRAD/lithium/zipball/lithium-0.11",
+                "reference": "lithium-0.11",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.6",
+                "composer/installers": "dev-master"
+            },
+            "time": "2012-10-11 12:40:04",
+            "type": "lithium-library",
+            "installation-source": "source",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Union of RAD",
+                    "homepage": "http://union-of-rad.org"
+                },
+                {
+                    "name": "The Lithium Community",
+                    "homepage": "http://github.com/UnionOfRAD/lithium/graphs/contributors"
+                }
+            ],
+            "description": "The core library of the Lithium PHP framework",
+            "homepage": "http://lithify.me",
+            "keywords": [
+                "framework",
+                "lithium"
+            ]
+        },
+        {
+            "name": "composer/installers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers",
+                "reference": "84e373614874cf7687330fbd6ce305f4dd85d103"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/composer/installers/archive/84e373614874cf7687330fbd6ce305f4dd85d103.zip",
+                "reference": "84e373614874cf7687330fbd6ce305f4dd85d103",
+                "shasum": ""
+            },
+            "replace": {
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "time": "2012-12-27 17:50:09",
+            "type": "composer-installer",
+            "extra": {
+                "class": "Composer\\Installers\\Installer"
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Composer\\Installers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "http://composer.github.com/installers/",
+            "keywords": [
+                "symfony",
+                "installer",
+                "zend",
+                "wordpress",
+                "cakephp",
+                "codeigniter",
+                "fuelphp",
+                "drupal",
+                "lithium",
+                "li3",
+                "joomla",
+                "laravel",
+                "phpbb",
+                "ppi",
+                "silverstripe",
+                "kohana",
+                "mako",
+                "TYPO3 Flow",
+                "TYPO3 Neos",
+                "agl"
+            ]
+        },
+        {
+            "name": "daschl/li3_server",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/daschl/li3_server.git",
+                "reference": "1e46986de317fc3a28dd128ddff5f7705e99b082"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/daschl/li3_server/archive/1e46986de317fc3a28dd128ddff5f7705e99b082.zip",
+                "reference": "1e46986de317fc3a28dd128ddff5f7705e99b082",
+                "shasum": ""
+            },
+            "require": {
+                "php": "5.4.*",
+                "composer/installers": "dev-master"
+            },
+            "time": "2012-08-10 06:25:54",
+            "type": "lithium-library",
+            "installation-source": "source",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Michael Nitschinger",
+                    "email": "michael@nitschinger.at",
+                    "homepage": "http://nitschinger.at"
+                }
+            ],
+            "description": "Booting Lithium from the CLI.",
+            "homepage": "https://github.com/daschl/li3_server"
+        },
+        {
+            "name": "mehlah/li3_rest",
+            "version": "master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/mehlah/li3_rest.git",
+                "reference": "master"
+            },
+            "type": "lithium-library",
+            "installation-source": "source",
+            "time": "2012-07-24 15:37:38"
+        },
+        {
+            "name": "mehlah/li3_time_helper",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:mehlah/li3_time_helper.git",
+                "reference": "713bb603e90c22c95dcd443f41c1f4cbb864ebd5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mehlah/li3_time_helper/zipball/713bb603e90c22c95dcd443f41c1f4cbb864ebd5",
+                "reference": "713bb603e90c22c95dcd443f41c1f4cbb864ebd5",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*"
+            },
+            "time": "2012-12-30 01:04:47",
+            "type": "lithium-library",
+            "installation-source": "source",
+            "authors": [
+                {
+                    "name": "Mehdi Lahmam B.",
+                    "email": "mehdi@lahmam.com"
+                }
+            ],
+            "description": "Lithium Date/Time helper.",
+            "support": {
+                "source": "https://github.com/mehlah/li3_time_helper/tree/master",
+                "issues": "https://github.com/mehlah/li3_time_helper/issues"
+            }
+        },
+        {
+            "name": "michaelhue/li3_gravatar",
+            "version": "master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/michaelhue/li3_gravatar.git",
+                "reference": "master"
+            },
+            "type": "lithium-library",
+            "installation-source": "source",
+            "time": "2011-10-22 10:10:03"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "daschl/li3_server": 20,
+        "michaelhue/li3_gravatar": 20,
+        "mehlah/li3_rest": 20,
+        "mehlah/li3_time_helper": 20,
+        "composer/installers": 20
+    }
+}
