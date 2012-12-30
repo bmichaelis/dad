@@ -12,10 +12,10 @@
     // Link elements bound by jquery-ujs
     linkClickSelector: 'a[data-confirm], a[data-method], a[data-remote], a[data-disable-with]',
 
-		// Select elements bound by jquery-ujs
-		inputChangeSelector: 'select[data-remote], input[data-remote], textarea[data-remote]',
+    // Select elements bound by jquery-ujs
+    inputChangeSelector: 'select[data-remote], input[data-remote], textarea[data-remote]',
 
-		// Form elements bound by jquery-ujs
+    // Form elements bound by jquery-ujs
     formSubmitSelector: 'form',
 
     // Form input elements bound by jquery-ujs
@@ -95,7 +95,7 @@
           beforeSend: function(xhr, settings) {
             if (settings.dataType === undefined) {
              // xhr.setRequestHeader('accept', '*/*;q=0.5, ' + settings.accepts.script);
-							xhr.setRequestHeader('accept', settings.accepts.script);
+              xhr.setRequestHeader('accept', settings.accepts.script);
             }
             return lithium.fire(element, 'ajax:beforeSend', [xhr, settings]);
           },
@@ -113,8 +113,8 @@
         if (url) { options.url = url; }
 
         return lithium.ajax(options);
-			} else {
-				return false;
+      } else {
+        return false;
       }
     },
 
@@ -133,7 +133,7 @@
         metadata_input += '<input name="' + csrf_param + '" value="' + csrf_token + '" type="hidden" />';
       }
 
-			if (target) { form.attr('target', target); }
+      if (target) { form.attr('target', target); }
 
       form.hide().append(metadata_input).appendTo('body');
       form.submit();
@@ -223,41 +223,41 @@
         });
       }
       return continuePropagation;
-		},
+    },
 
-		//  replace element's html with the 'data-disable-with' after storing original html
-		//  and prevent clicking on it
-		disableElement: function(element) {
-			element.data('ujs:enable-with', element.html()); // store enabled state
-			element.html(element.data('disable-with')); // set to disabled state
-			element.bind('click.lithiumDisable', function(e) { // prevent further clicking
-				return lithium.stopEverything(e);
-			});
-		},
-		// restore element to its original state which was disabled by 'disableElement' above
-		enableElement: function(element) {
-			if (element.data('ujs:enable-with') !== undefined) {
-				element.html(element.data('ujs:enable-with')); // set to old enabled state
-				element.removeData('ujs:enable-with'); // clean up cache
-			}
-			element.unbind('click.lithiumDisable'); // enable element
+    //  replace element's html with the 'data-disable-with' after storing original html
+    //  and prevent clicking on it
+    disableElement: function(element) {
+      element.data('ujs:enable-with', element.html()); // store enabled state
+      element.html(element.data('disable-with')); // set to disabled state
+      element.bind('click.lithiumDisable', function(e) { // prevent further clicking
+        return lithium.stopEverything(e);
+      });
+    },
+    // restore element to its original state which was disabled by 'disableElement' above
+    enableElement: function(element) {
+      if (element.data('ujs:enable-with') !== undefined) {
+        element.html(element.data('ujs:enable-with')); // set to old enabled state
+        element.removeData('ujs:enable-with'); // clean up cache
+      }
+      element.unbind('click.lithiumDisable'); // enable element
     }
   };
 
   $.ajaxPrefilter(function(options, originalOptions, xhr){ if ( !options.crossDomain ) { lithium.CSRFProtection(xhr); }});
 
-	$(document).delegate(lithium.linkDisableSelector, 'ajax:complete', function() {
-		lithium.enableElement($(this));
-	});
+  $(document).delegate(lithium.linkDisableSelector, 'ajax:complete', function() {
+    lithium.enableElement($(this));
+  });
 
   $(document).delegate(lithium.linkClickSelector, 'click.lithium', function(e) {
     var link = $(this), method = link.data('method'), data = link.data('params');
     if (!lithium.allowAction(link)) return lithium.stopEverything(e);
 
-		if (link.is(lithium.linkDisableSelector)) lithium.disableElement(link);
+    if (link.is(lithium.linkDisableSelector)) lithium.disableElement(link);
 
     if (link.data('remote') !== undefined) {
-    	if ( (e.metaKey || e.ctrlKey) && (!method || method === 'GET') && !data ) { return true; }
+      if ( (e.metaKey || e.ctrlKey) && (!method || method === 'GET') && !data ) { return true; }
 
       if (lithium.handleRemote(link) === false) { lithium.enableElement($(this)); }
 
@@ -268,7 +268,7 @@
     }
   });
 
-	$(document).delegate(lithium.inputChangeSelector, 'change.lithium', function(e) {
+  $(document).delegate(lithium.inputChangeSelector, 'change.lithium', function(e) {
     var link = $(this);
     if (!lithium.allowAction(link)) return lithium.stopEverything(e);
 
