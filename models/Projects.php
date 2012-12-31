@@ -11,7 +11,7 @@ class Projects extends \dad\extensions\data\BaseModel {
 		'name'         => ['type' => 'string'],
 		'description'  => ['type' => 'string'],
 		'creator'      => ['type' => 'object'],
-		'creator.id'   => ['type' => 'string'],
+		'creator.id'   => ['type' => 'id'],
 		'creator.name' => ['type' => 'string'],
 		'archived'     => ['type' => 'boolean', 'default' => false],
 		'created_at'   => ['type' => 'date'],
@@ -23,22 +23,22 @@ class Projects extends \dad\extensions\data\BaseModel {
 	];
 
 	public function discussions($project, array $options = []) {
-		$conditions = $options += ['project_id' => (string) $project->_id];
+		$conditions = $options += ['project_id' => $project->_id];
 		return Discussions::all(compact('conditions'));
 	}
 
 	public function count_discussions($project, array $options = []) {
-		$conditions = $options += ['project_id' => (string) $project->_id];
+		$conditions = $options += ['project_id' => $project->_id];
 		return Discussions::count(compact('conditions'));
 	}
 
 	public function discussion($project, array $options = []) {
-		$conditions = $options += ['project_id' => (string) $project->_id];
+		$conditions = $options += ['project_id' => $project->_id];
 		return Discussions::first(compact('conditions'));
 	}
 
 	public function create_discussion($project, array $data = [], $options = []) {
-		$data += ['project_id' => (string) $project->_id];
+		$data += ['project_id' => $project->_id];
 		return Discussions::create($data, $options);
 	}
 }

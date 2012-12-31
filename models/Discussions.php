@@ -14,11 +14,11 @@ class Discussions extends \dad\extensions\data\BaseModel {
 
 	protected $_schema = [
 		'_id'          => ['type' => 'id'],
-		'project_id'   => ['type' => 'string'],
+		'project_id'   => ['type' => 'id'],
 		'subject'      => ['type' => 'string'],
 		'content'      => ['type' => 'string'],
 		'creator'      => ['type' => 'object'],
-		'creator.id'   => ['type' => 'string'],
+		'creator.id'   => ['type' => 'id'],
 		'creator.name' => ['type' => 'string'],
 		'messages'     => ['type' => 'object', 'array' => true],
 		'created_at'   => ['type' => 'date'],
@@ -91,11 +91,11 @@ class Discussions extends \dad\extensions\data\BaseModel {
 	}
 
 	public function project($discussion) {
-		return Projects::first($discussion->project_id);
+		return Projects::first((string) $discussion->project_id);
 	}
 
 	public function creator($discussion) {
-		return People::first($discussion->creator->id);
+		return People::first((string) $discussion->creator->id);
 	}
 }
 

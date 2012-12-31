@@ -17,7 +17,7 @@ class Messages extends \dad\extensions\data\BaseModel {
 		'id'           => ['type' => 'string'],
 		'content'      => ['type' => 'string'],
 		'creator'      => ['type' => 'object'],
-		'creator.id'   => ['type' => 'string'],
+		'creator.id'   => ['type' => 'id'],
 		'creator.name' => ['type' => 'string'],
 		'created_at'   => ['type' => 'date'],
 		'updated_at'   => ['type' => 'date']
@@ -28,7 +28,7 @@ class Messages extends \dad\extensions\data\BaseModel {
 	];
 
 	public function creator($message) {
-		return People::first($message->creator->id);
+		return People::first((string) $message->creator->id);
 	}
 }
 

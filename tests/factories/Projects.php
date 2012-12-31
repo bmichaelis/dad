@@ -8,6 +8,10 @@ class Projects extends \dad\models\Projects {
 		$defaults = [
 			'name' => 'TDD Best Practices',
 			'description' => 'Thought on TDD best practices',
+			'creator' => [
+				'id' => new \MongoId(),
+				'name' => 'Mehdi'
+			]
 		];
 		$data += $defaults;
 

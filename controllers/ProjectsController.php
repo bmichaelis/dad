@@ -53,7 +53,7 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 	 */
 	public function create() {
 		$user = $this->current_user();
-		$project = Projects::create($this->project_data() + ['creator' => ['id' => (string) $user->_id, 'name' => $user->name]]);
+		$project = Projects::create($this->project_data() + ['creator' => ['id' => $user->_id, 'name' => $user->name]]);
 
 		if ($project->save()) {
 			return $this->redirect(['Projects::show' , 'id' => $project->_id]);

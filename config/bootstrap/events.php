@@ -50,7 +50,7 @@ Filters::apply('dad\models\Discussions', 'save', function($self, $params, $chain
 		'target' => [
 			'type' => 'project',
 			'name' => $discussion->project()->name,
-			'id'   => (string) $discussion->project()->_id
+			'id'   => $discussion->project()->_id
 		]
 
 	];
@@ -58,7 +58,7 @@ Filters::apply('dad\models\Discussions', 'save', function($self, $params, $chain
 	if (!$result = $chain->next($self, $params, $chain)) {
 		return false;
 	}
-	$data['object']['id'] = (string) $discussion->{$discussion->key()};
+	$data['object']['id'] = $discussion->{$discussion->key()};
 
 	Activity::track('saved_discussion', $data);
 	return $result;
@@ -81,7 +81,7 @@ Filters::apply('dad\models\Discussions', 'push_message', function($self, $params
 		'target' => [
 			'type' => 'discussion',
 			'name' => $params['discussion']->subject,
-			'id'   => (string) $params['discussion']->_id
+			'id'   => $params['discussion']->_id
 		]
 	];
 
@@ -117,7 +117,7 @@ Filters::apply('dad\models\Projects', 'save', function($self, $params, $chain) {
 		if (!$result = $chain->next($self, $params, $chain)) {
 			return false;
 		}
-		$data['object']['id'] = (string) $project->{$project->key()};
+		$data['object']['id'] = $project->{$project->key()};
 
 		Activity::track('saved_project', $data);
 		return $result;

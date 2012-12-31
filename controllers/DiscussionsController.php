@@ -71,7 +71,7 @@ class DiscussionsController extends \dad\extensions\action\BaseController {
 	 */
 	public function create() {
 		$user = $this->current_user();
-		$discussion = $this->project->create_discussion($this->discussion_data() + ['creator' => ['id' => (string) $user->_id, 'name' => $user->name]]);
+		$discussion = $this->project->create_discussion($this->discussion_data() + ['creator' => ['id' => $user->_id, 'name' => $user->name]]);
 
 		if ($discussion->save()) {
 			return $this->redirect(['Discussions::show', 'id' => $discussion->_id, 'project_id' => $this->request->project_id]);

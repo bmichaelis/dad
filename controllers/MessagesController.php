@@ -34,7 +34,7 @@ class MessagesController extends \dad\extensions\action\BaseController {
 	 */
 	public function create() {
 		$user = $this->current_user();
-		$message = $this->discussion->create_message($this->message_data() + ['creator' => ['id' => (string) $user->_id, 'name' => $user->name]]);
+		$message = $this->discussion->create_message($this->message_data() + ['creator' => ['id' => $user->_id, 'name' => $user->name]]);
 
 		if ($this->discussion->push_message($message)) {
 			return $this->redirect(['Discussions::show', 'id' => $this->discussion->_id, 'project_id' => $this->discussion->project_id]);

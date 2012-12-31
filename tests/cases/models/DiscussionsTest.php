@@ -19,10 +19,10 @@ class DiscussionsTest extends \lithium\test\Unit {
 	public function test_project_marked_updated_after_discussion_save_or_delete() {
 		$creator = People::create();
 		$creator->save();
-		$project = Projects::create(['creator' => ['id' => (string) $creator->_id, 'name' => $creator->name]]);
+		$project = Projects::create(['creator' => ['id' => $creator->_id, 'name' => $creator->name]]);
 		$project->save();
 
-		$discussion = $project->create_discussion(['creator' => ['id' => (string) $creator->_id, 'name' => $creator->name]]);
+		$discussion = $project->create_discussion(['creator' => ['id' => $creator->_id, 'name' => $creator->name]]);
 		$discussion->save();
 		$updated_project_after_save = Projects::first(['conditions' => ['_id' => $project->_id]]);
 
