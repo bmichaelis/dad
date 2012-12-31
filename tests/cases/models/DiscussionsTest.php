@@ -4,21 +4,25 @@ namespace dad\tests\cases\models;
 
 use dad\models\Discussions;
 use dad\tests\factories\Projects;
+use dad\tests\factories\People;
 
 class DiscussionsTest extends \lithium\test\Unit {
 
 	public function setUp() {}
 
 	public function tearDown() {
-		Projects::remove();
 		Discussions::remove();
+		Projects::remove();
+		People::remove();
 	}
 
 	public function test_project_marked_updated_after_discussion_save_or_delete() {
-		$project = Projects::create();
+		$creator = People::create();
+		$creator->save();
+		$project = Projects::create(['creator' => ['id' => (string) $creator->_id, 'name' => $creator->name]]);
 		$project->save();
 
-		$discussion = Discussions::create(['project_id' => (string) $project->_id]);
+		$discussion = $project->create_discussion(['creator' => ['id' => (string) $creator->_id, 'name' => $creator->name]]);
 		$discussion->save();
 		$updated_project_after_save = Projects::first(['conditions' => ['_id' => $project->_id]]);
 
