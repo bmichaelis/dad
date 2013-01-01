@@ -41,6 +41,14 @@ class Projects extends \dad\extensions\data\BaseModel {
 		$data += ['project_id' => $project->_id];
 		return Discussions::create($data, $options);
 	}
+
+	/**
+	 * TODO: Update events log for the deleted project
+	 */
+	public function delete($project, array $options = []) {
+		Discussions::remove(['project_id' => $project->_id]);
+		return parent::delete($project, $options);
+	}
 }
 
 ?>

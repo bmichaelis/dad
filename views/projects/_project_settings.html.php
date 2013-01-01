@@ -20,7 +20,12 @@
 			<?= $this->form->end() ?>
 		</div>
 		<div class="four columns">
-			<?= $this->html->link('Delete this project', '#') ?>
+			<?= $this->html->link(
+					'Delete this project',
+					$this->resource->path($project),
+					['data-method' => 'delete', 'data-confirm' => 'Are you sure you want to completely delete this entire project?']
+				)
+			?>
 		</div>
 	</div>
 </section>

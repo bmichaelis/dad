@@ -100,18 +100,11 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 	/**
 	 * Delete a project
 	 *
-	 * - `DELETE /projects/1` will delete the project specified.
-	 *
-	 * Return a `204 No Content` on success.
+	 * - `DELETE /projects/1` will delete the project specified and redirects to the projects list.
 	 */
 	public function delete() {
-		$project = Projects::find($this->request->id);
-
-		if ($project->delete()) {
-			return $this->render(['head' => true, 'status' => 204]);
-		}
-
-		return $this->render(['head' => true, 'status' => 400]);
+		Projects::find($this->request->id)->delete();
+		return $this->redirect(['Projects::index', 'http:method' => 'GET']);
 	}
 
 	/**
