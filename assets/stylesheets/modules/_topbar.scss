@@ -7,34 +7,44 @@
 .top-bar {
 
   &>ul {
-      .name {
-        background-color: #1c1c1c;
-        h1 {
-          a {
-            color: #fff;
-          }
-        }
-        &:hover {
-          background-color: $mainColor;
-          @include transition(background-color 0.3s ease-in-out);
+    .name {
+      background-color: #1c1c1c;
+      h1 {
+        a {
+          color: #fff;
         }
       }
+      &:hover {
+        background-color: $mainColor;
+        @include transition(background-color 0.3s ease-in-out);
+      }
+    }
 
-      .tagline {
-        padding: 0 ms(0);
-        color: $topBarLinkColor;
-        display: block;
-        font-size: $topBarLinkSize;
-        font-weight: $topBarLinkWeight;
-        height: $topBarHeight;
-        line-height: $topBarHeight;
-        padding: 0 $topBarHeight / 3;
+    .tagline {
+      padding: 0 ms(0);
+      color: $topBarLinkColor;
+      display: block;
+      font-size: $topBarLinkSize;
+      font-weight: $topBarLinkWeight;
+      height: $topBarHeight;
+      line-height: $topBarHeight;
+      padding: 0 $topBarHeight / 3;
 
+      &:hover {
+        background-color: $topBarBgColor !important;
+      }
+    }
+  }
+
+  ul {
+    &>li {
+      &:not(.name) {
         &:hover {
-          background-color: $topBarBgColor !important;
+          background: darken($topBarBgColor, 5%);
         }
       }
     }
+  }
 
   img.avatar {
     width: 30px;

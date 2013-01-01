@@ -45,7 +45,7 @@
 						]) ?>
 					</a>
 					<ul class="dropdown">
-					<li><?= $this->html->link('Profile', ['People::edit', 'id' => $current_user->_id]) ?></li>
+					<li><?= $this->html->link('Your Profile', ['People::edit', 'id' => $current_user->_id]) ?></li>
 						<li class="divider"></li>
 						<li><a href="/signout">Sign out</a></li>
 					</ul>
