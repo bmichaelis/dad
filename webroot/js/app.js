@@ -21,7 +21,7 @@
   }
 
 
-  $("[data-behavior~=expandable]").live("click", function(){
+  $doc.on("click", "[data-behavior~=expandable]", function(){
     $(this).find('.collapsed_content').hide();
     $(this).find('.expanded_content').show();
   });
