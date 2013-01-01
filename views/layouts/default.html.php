@@ -58,7 +58,7 @@
 
 	<?= $this->flashMessage->show(); ?>
 
-	<div class="row">
+	<div id="container" class="row">
 		<?php echo $this->content(); ?>
 	</div>
 
@@ -78,6 +78,8 @@
 			'application-ujs.js',
 			'app.js'
 		]);
+
+		echo $this->scripts();
 	?>
 
 	<script>

@@ -47,11 +47,22 @@ div.project-examples {
 }
 
 // project view
-.project {
+#project-show {
+
   header {
     h3 { margin-bottom: 0; }
     p { color: $brown; }
   }
+
+  section.project-settings {
+    #project-settings h5 {
+      margin-top: 0;
+    }
+    div {
+      font-size: ms(0) - 2;
+    }
+  }
+
   #discussions-list {
     h5 a {
       margin: 0 8px;

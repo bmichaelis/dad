@@ -114,12 +114,11 @@ class ProjectsController extends \dad\extensions\action\BaseController {
 		return $this->render(['head' => true, 'status' => 400]);
 	}
 
-
 	/**
 	 * Encapsulate the permissible attributes of a project
 	 */
 	private function project_data() {
-		return array_intersect_key($this->request->data, array_flip(['name', 'description']));
+		return array_intersect_key($this->request->data, array_flip(['name', 'description', 'archived']));
 	}
 }
 

@@ -1,10 +1,10 @@
-<div class="twelve columns project">
+<section id="project-show" class="twelve columns">
 	<header>
 		<h3><?= $this->title($project->name) ?></h3>
 		<p><?= $project->description ?></p>
 	</header>
 
-	<div id="discussions-list">
+	<section id="discussions-list">
 		<h5>
 			Discussions
 			<?= $this->html->link(
@@ -20,5 +20,8 @@
 			</li>
 			<?php endforeach; ?>
 		</ul>
-	</div>
-</div>
+	</section>
+
+	<hr />
+	<?= $this->element->render('project_settings') ?>
+</section>
