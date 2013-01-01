@@ -5,6 +5,7 @@ $rowWidth: 1000px;
 $columnGutter: 30px;
 $totalColumns: 12;
 $mobileTotalColumns: 4;
+$blockGridElements: 12;
 
 // Colors Settings
 $black: #211f18;
@@ -23,16 +24,25 @@ $shinyEdge: rgba(#fff, .5);
 $darkEdge: rgba(#000, .2);
 
 // Typography Settings
+$fontSmoothing: antialiased;
 $headerFontFamily: "freight-sans-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $headerFontWeight: 700;
 $headerFontColor: $dark-gray;
-
+$headerFontStyle: normal;
 $bodyFontFamily: "freight-sans-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $bodyFontWeight: 500;
 $bodyFontColor: $black;
+$bodyFontStyle: normal;
 
 $txtColor: $black;
 
+// Modular Scale
+$ratio: $golden;
+$baseFontSize: 16px;
+$importantModNum: 44px;
+$base-size: $baseFontSize $importantModNum;
+
+// Icons font
 $fontFileName: "/fonts/general_foundicons";
 $fontName: "GeneralFoundicons";
 $classPrefix: "icon-";
@@ -40,16 +50,29 @@ $classPrefix: "icon-";
 // Button Settings
 $buttonRadius: 4px;
 $btnBase: 10px;
-
 $tinyBtnBase: $btnBase - 5;
 $smallBtnBase: $btnBase - 3;
 $largeBtnBase: $btnBase + 5;
 
 // Form Settings
 $formSpacing: 14px;
+// $labelFontWeight: 500;
+// $labelFontColor: lighten(#000, 30%);
+// $labelBtmMargin: 3px;
+// $inputFontColor: rgba(0,0,0,0.75);
+// $inputFontSize: 14px;
+// $inputBgColor: #fff;
+// $inputFocusBgColor: darken(#fff, 2%);
+// $inputBorderColor: darken(#fff, 20%);
+// $inputFocusBorderColor: darken(#fff, 30%);
+// $inputBorderStyle: solid;
+// $inputBorderWidth: 1px;
+// $inputBorderRadius: 2px;
+// $fieldsetBorderRadius: 3px;
 
 // Tab Settings
 $tabHeight: 40px;
+// $tabTermFontSize: 12px;
 
 // Nav Bar Settings
 $navBarHeight: 40px;
@@ -57,11 +80,6 @@ $navFlyoutBaseWidth: 250px;
 
 // UI Settings
 $thumbRadius: 3px;
-
-// Modular Scale
-$ratio: $golden;
-$baseFontSize: 16px;
-$importantModNum: 44px;
 
 // Tooltip Settings
 $hasTipBorderBottom: dotted 1px #ccc;
@@ -79,6 +97,7 @@ $tapToCloseFontWeight: normal;
 $tapToCloseFontColor: #888;
 $tooltipFontSizeScreenSmall: 14;
 $tooltipBackgroundOpacityScreenSmall: 0.85;
+$tooltipBorderRadius: 4px;
 
 // Top Bar Settings
 $topBarBgColor: #222;
@@ -90,6 +109,9 @@ $topBarLinkColor: $white;
 $topBarLinkWeight: bold;
 $topBarLinkSize: ms(0) - 1;
 $topBarDropToggleSize: 5px;
+// $topBarDropToggleColor: #fff;
+// $topBarDropToggleColor: #fff;
+// $topBarDropToggleAlpha: 0.5;
 $topBarSearchWidth: 200px;
 $topBarBreakPoint: 940px; // Change to 9999px for always mobile layout
 $topBarNavToggleSize: 8px;
