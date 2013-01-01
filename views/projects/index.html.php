@@ -1,8 +1,8 @@
 <div class="two columns projects-nav">
 	<?= $this->html->link(
-		'+ New Project',
+		'<i class="icon-plus"></i> New Project',
 		['Projects::add', 'http:method' => 'GET'],
-		['class' => 'button small radius']
+		['class' => 'button small radius', 'escape' => false]
 	) ?>
 </div>
 
