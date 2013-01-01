@@ -1,0 +1,36 @@
+li.discussion-item {
+  padding-top: 17px;
+  border-bottom: 1px solid #eee;
+  &:last-child {
+    border-bottom: none;
+  }
+
+  a {
+    color: $txtColor;
+    &:hover {
+      color: $mainColor;
+      text-decoration: underline;
+    }
+  }
+
+  .creator {
+    .creator-avatar img {
+      margin: -8px 8px 0 0;
+      vertical-align: top;
+      height: 40px;
+      width: 40px;
+      border-radius: 100px;
+    }
+  }
+
+  .label {
+    &.updated-at {
+      color: $grayDark;
+      background-color: #fff;
+      font-weight: 500;
+    }
+    &.messages-count {
+      background-color: $grayLight;
+    }
+  }
+}

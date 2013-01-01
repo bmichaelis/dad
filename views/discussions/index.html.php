@@ -1,4 +1,4 @@
-<div class="twelve columns project">
+<section class="twelve columns project">
 	<header>
 		<h3><?= $this->title($project->name . ' discussions') ?></h3>
 		<p><?= $project->description ?></p>
@@ -10,7 +10,7 @@
 		}
 	?>
 
-	<div id="discussions-list">
+	<section id="discussions-list">
 		<h5>
 			Discussions
 			<?= $this->html->link(
@@ -19,12 +19,12 @@
 				['class' => 'button tiny radius']
 			) ?>
 		</h5>
-		<ul>
-			<?php foreach ($discussions as $discussion) : ?>
-			<li class="row">
-				<?= $this->element->render('discussion_item', ['discussion' => $discussion]) ?>
-			</li>
-			<?php endforeach; ?>
+		<ul class="no-bullet">
+			<?php
+			foreach ($discussions as $discussion) {
+				echo $this->element->render('discussion_item', ['discussion' => $discussion]);
+			}
+			?>
 		</ul>
-	</div>
-</div>
+	</section>
+</section>

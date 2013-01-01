@@ -1,0 +1,23 @@
+.project-item {
+  header {
+    h4 {
+      margin-bottom: 0px;
+    }
+    a {
+      color: $headerFontColor;
+      &:hover {
+        color: $mainColor;
+      }
+    }
+
+    p {
+      color: $grayDark;
+      word-wrap: break-word;
+      margin-bottom: 5px;
+    }
+
+    p + p {
+      font-size: ms(0) - 2;
+    }
+  }
+}

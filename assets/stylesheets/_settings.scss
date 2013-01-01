@@ -9,14 +9,14 @@ $blockGridElements: 12;
 
 // Colors Settings
 $black: #211f18;
-$dark-gray: #423f37;
-$light-gray: #e3e0d8;
 $white: #fff;
-$orange: #D8443F;
-$brown: #AA9C84;
+$pink: #d54d7b;
+$grayDark: #7a7c7f;
+$grayLight: #B6B6B6;
+$grayLighter: #f5f5f5;
 
-$mainColor: $orange;
-$secondaryColor: $light-gray;
+$mainColor: $pink; //#F90B6D
+$secondaryColor: $grayLight;
 $alertColor: #c60f13;
 $successColor: #5da423;
 $highlightColor: #ffff99;
@@ -27,7 +27,7 @@ $darkEdge: rgba(#000, .2);
 $fontSmoothing: antialiased;
 $headerFontFamily: "freight-sans-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $headerFontWeight: 700;
-$headerFontColor: $dark-gray;
+$headerFontColor: $black;
 $headerFontStyle: normal;
 $bodyFontFamily: "freight-sans-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $bodyFontWeight: 500;
@@ -100,17 +100,16 @@ $tooltipBackgroundOpacityScreenSmall: 0.85;
 $tooltipBorderRadius: 4px;
 
 // Top Bar Settings
-$topBarBgColor: #222;
-$topBarHeight: 45px;
-$topBarBtmMargin: 40px;
+$topBarBgColor: #f8f8f8;
+$topBarHeight: 60px;
+$topBarBtmMargin: 60px;
 $topBarTitleWeight: bold;
 $topBarTitleSize: ms(1);
-$topBarLinkColor: $white;
+$topBarLinkColor: #979797;
 $topBarLinkWeight: bold;
 $topBarLinkSize: ms(0) - 1;
 $topBarDropToggleSize: 5px;
-// $topBarDropToggleColor: #fff;
-// $topBarDropToggleColor: #fff;
+$topBarDropToggleColor: #979797;
 // $topBarDropToggleAlpha: 0.5;
 $topBarSearchWidth: 200px;
 $topBarBreakPoint: 940px; // Change to 9999px for always mobile layout

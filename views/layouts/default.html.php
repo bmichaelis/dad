@@ -30,7 +30,7 @@
 		<nav class="top-bar">
 			<ul>
 				<li class="name"><h1><a href="/">DAD</a></h1></li>
-				<li class="toggle-nav"><a href="#"></a></li>
+				<li class="tagline">// day after day</li>
 			</ul>
 			<section>
 				<ul class="right">

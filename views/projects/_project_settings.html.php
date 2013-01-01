@@ -5,7 +5,7 @@
 		</div>
 	</div>
 	<div id="project-settings" class="row" style="display:none;">
-		<div class="eight columns">
+		<div class="ten columns">
 			<h5>Project settings</h5>
 			<?= $this->form->create($project, ['url' => $this->resource->path($project)]) ?>
 			<label>
@@ -19,7 +19,7 @@
 			<?= $this->form->submit('Save changes') ?> or <a href="#" data-behavior="cancel">Cancel</a>
 			<?= $this->form->end() ?>
 		</div>
-		<div class="four columns">
+		<div class="two columns">
 			<?= $this->html->link(
 					'Delete this project',
 					$this->resource->path($project),

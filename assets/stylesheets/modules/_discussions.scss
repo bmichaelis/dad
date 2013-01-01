@@ -1,12 +1,20 @@
-// discussion view
+// discussions list
+#discussions-list {
+	margin-top: 32px;
 
+	h5 a {
+		margin: 0 8px;
+	}
+}
+
+// discussion view
 .discussion {
   article > header {
     h3 {
       margin-bottom: 0px;
     }
     div {
-      color: $brown;
+      color: $grayDark;
       font-size: ms(0);
       line-height: 1.6;
       margin-bottom: ms(1);
@@ -14,9 +22,9 @@
         display: inline;
         margin-left: 6px;
         a {
-          color: $brown;
+          color: $grayDark;
           text-decoration: underline;
-          &:hover { color: $orange; }
+          &:hover { color: $mainColor; }
         }
       }
     }

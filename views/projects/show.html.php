@@ -13,12 +13,12 @@
 				['class' => 'button tiny radius']
 			) ?>
 		</h5>
-		<ul>
-			<?php foreach ($discussions as $discussion) : ?>
-			<li class="row">
-				<?= $this->element->render('discussion_item', ['discussion' => $discussion], ['controller' => 'discussions']) ?>
-			</li>
-			<?php endforeach; ?>
+		<ul class="no-bullet">
+			<?php
+			foreach ($discussions as $discussion) {
+				echo $this->element->render('discussion_item', ['discussion' => $discussion], ['controller' => 'discussions']);
+			}
+			?>
 		</ul>
 	</section>
 

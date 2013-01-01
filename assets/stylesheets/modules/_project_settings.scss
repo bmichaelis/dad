@@ -1,0 +1,12 @@
+.project-settings {
+  .project-settings-link {
+    color: $grayDark;
+    div { font-size: ms(0) - 2; }
+    a {
+      color: $grayDark;
+    }
+  }
+  #project-settings h5 {
+    margin-top: 0;
+  }
+}
