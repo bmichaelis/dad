@@ -1,6 +1,16 @@
 .project-item {
+
+  &>.panel {
+    min-height: 230px;
+    header {
+      h5 {
+        margin-top: 0px;
+      }
+    }
+  }
+
   header {
-    h4 {
+    h5 {
       margin-bottom: 0px;
     }
     a {
@@ -14,10 +24,11 @@
       color: $grayDark;
       word-wrap: break-word;
       margin-bottom: 5px;
+      font-size: ms(0);
     }
 
     p + p {
-      font-size: ms(0) - 2;
+      font-size: ms(0) - 4;
     }
   }
 }

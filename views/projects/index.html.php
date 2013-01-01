@@ -7,7 +7,7 @@
 </div>
 
 <section class="ten columns">
-	<ul class="no-bullet">
+	<ul class="block-grid three-up">
 		<?php
 		foreach ($projects as $project) {
 			echo $this->element->render('project_item', ['project' => $project]);
