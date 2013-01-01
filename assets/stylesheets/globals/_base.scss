@@ -1,3 +1,9 @@
 #container {
   padding-bottom: 60px;
 }
+
+.ellipsis {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}

@@ -21,8 +21,8 @@ class PersonTest extends \lithium\test\Unit {
 			'Kévin Chavanne' => 'Kévin C.',
 			'HELENE SOMMET' => 'Helene S.',
 			'John E. Gray' => 'John E.',
-			'Repellendus Victor' => 'Repellend...',
-			'Repëllendus Victor' => 'Repëllend...'
+			'Repellendus Victor' => 'Repellendus V.',
+			'Repëllendus Victor' => 'Repëllendus V.'
 		];
 
 		foreach ($pairs as $name => $expected) {

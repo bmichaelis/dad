@@ -1,6 +1,6 @@
 <li class="row discussion-item">
 	<div class="two columns creator">
-		<p>
+		<p class="ellipsis">
 			<span class="creator-avatar">
 				<?= $this->gravatar->image($discussion->creator()->gravatar_email, [
 					'default' => '/img/john_doe_avatar.png',
