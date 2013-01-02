@@ -8,7 +8,15 @@ class MessagesTest extends \lithium\test\Unit {
 
 	public function setUp() {}
 
-	public function tearDown() {}
+	public function tearDown() {
+		Messages::remove();
+	}
+
+	public function test_create() {
+		$message = Messages::create();
+		$this->assertTrue(!empty($message->content));
+		$this->assertTrue($message->creator->id instanceof \MongoId);
+	}
 
 	public function test_validates() {
 		$message = Messages::create();

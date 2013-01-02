@@ -23,6 +23,10 @@ class Messages extends \dad\models\Messages {
 						I see two main areas here. One is if you're spending a lot of time debugging when tests fail because they aren't breaking cleanly
 						and telling you where the problem is. (You could also improve this by using classic TDD on finer-grained clusters.)
 						The second area is if your objects don't contain enough behavior, mockist testing may encourage the development team to create more behavior rich objects.",
+			'creator' => [
+				'id' => new \MongoId(),
+				'name' => 'Mehdi'
+			]
 		];
 		$data += $defaults;
 
