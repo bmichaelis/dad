@@ -41,7 +41,6 @@ class Discussions extends \dad\extensions\data\BaseModel {
 			'data' => $message_data[0],
 			'model' => __CLASS__
 		]);
-
 		// Sync the Entity to be flagged as existing
 		$message->sync($message->id);
 
@@ -70,10 +69,7 @@ class Discussions extends \dad\extensions\data\BaseModel {
 			$query = ['$push' => ['messages' => $message_data]];
 			$conditions = ['_id' => $discussion->_id];
 
-			if (!Discussions::update($query, $conditions)) {
-				return false;
-			}
-			return true;
+			return Discussions::update($query, $conditions);
 		};
 
 		return static::_filter(__FUNCTION__, $params, $filter);
@@ -82,12 +78,7 @@ class Discussions extends \dad\extensions\data\BaseModel {
 	public function pull_message($discussion, $message) {
 		$query = ['$pull' => ['messages' => ['id' => $message->id]]];
 		$conditions = ['_id' => $discussion->_id];
-
-		if (!Discussions::update($query, $conditions)) {
-			return false;
-		}
-
-		return true;
+		return Discussions::update($query, $conditions);
 	}
 
 	public function project($discussion) {
