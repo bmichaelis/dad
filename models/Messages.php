@@ -7,7 +7,7 @@ use dad\models\People;
 class Messages extends \dad\extensions\data\BaseModel {
 
 	protected $_meta = [
-		'connection' => false,
+		'connection' => 'default',
 		'source' => false,
 		'locked' => true,
 		'key' => 'id'

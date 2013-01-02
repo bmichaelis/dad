@@ -10,6 +10,13 @@ class MessagesTest extends \lithium\test\Unit {
 
 	public function tearDown() {}
 
+	public function test_create() {
+		$message = Messages::create();
+		$this->assertTrue(!empty($message->content));
+		$this->assertTrue($message->creator->id instanceof \MongoId);
+		$this->assertEqual('Mehdi', $message->creator->name);
+	}
+
 	public function test_validates() {
 		$message = Messages::create();
 		$this->assertTrue($message->validates());
