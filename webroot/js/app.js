@@ -11,14 +11,8 @@
   $.fn.foundationCustomForms      ? $doc.foundationCustomForms() : null;
   $.fn.foundationTooltips         ? $doc.foundationTooltips() : null;
 
-  // Hide address bar on mobile devices
-  if (Modernizr.touch) {
-    $(window).load(function () {
-      setTimeout(function () {
-        window.scrollTo(0, 1);
-      }, 0);
-    });
-  }
+  $.embedly.defaults['key'] = '4603f0580d124fa8ae58b4afd47b0835';
+  $('[data-embeddable]').embedly();
 
 
   $doc.on("click", "[data-behavior~=expandable]", function(){

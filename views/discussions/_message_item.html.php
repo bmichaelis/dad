@@ -5,7 +5,7 @@
 				'size' => 80
 			]) ?>
 	</div>
-	<div class="eight columns end formatted-content">
+	<div class="eight columns end formatted-content data-embeddable">
 		<strong><?= $message->creator->name ?></strong> –
 		<?php echo $message->content; ?>
 		<footer>
