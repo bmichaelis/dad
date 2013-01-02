@@ -22,7 +22,6 @@
 
 	<script type="text/javascript" src="//use.typekit.net/bhz8fbs.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	<script type="text/javascript" src="http://anywhere.embed.ly/scripts/17fc899bb78d4b6092c6daa3bac13c67.js?t=1349889153"></script>
 </head>
 <body class="app">
 
@@ -73,6 +72,7 @@
 			'jquery.foundation.topbar.js',
 			'jquery.foundation.forms.js',
 			'jquery.foundation.tooltips.js',
+			'jquery.embedly.js',
 			'wysihtml5-parser-rules.js',
 			'wysihtml5-0.3.0.min.js',
 			'application-ujs.js',

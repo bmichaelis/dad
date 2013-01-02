@@ -25,7 +25,7 @@
 				'size' => 80
 			]) ?>
 		</div>
-		<div class="eight columns end formatted-content">
+		<div class="eight columns end formatted-content" data-embeddable>
 			<?php echo $discussion->content; ?>
 		</div>
 		<hr />
