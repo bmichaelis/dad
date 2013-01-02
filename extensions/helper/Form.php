@@ -48,6 +48,64 @@ class Form extends \lithium\template\helper\Form {
 		$wrap = ['class' => 'form-actions'];
 		return $this->_render(__METHOD__, $template, compact('title', 'options', 'wrap'));
 	}
+
+	/**
+	 * Generates an HTML `<input type="checkbox" />` object.
+	 *
+	 * @param string $name The name of the field.
+	 * @param array $options Options to be used when generating the checkbox `<input />` element:
+	 *              - `'checked'` _boolean_: Whether or not the field should be checked by default.
+	 *              - `'value'` _mixed_: if specified, it will be used as the 'value' html
+	 *                attribute and no hidden input field will be added.
+	 *              - Any other options specified are rendered as HTML attributes of the element.
+	 * @return string Returns a `<input />` tag with the given name and HTML attributes.
+	 */
+	public function checkbox($name, array $options = array()) {
+		$defaults = array('value' => '1', 'hidden' => true);
+		$options += $defaults;
+		$default = $options['value'];
+		$key = $name;
+		$out = '';
+
+		list($name, $options, $template) = $this->_defaults(__FUNCTION__, $name, $options);
+		list($scope, $options) = $this->_options($defaults, $options);
+
+		if (!isset($options['checked'])) {
+			$options['checked'] = ($this->binding($key)->data == $default);
+		}
+		if ($scope['hidden']) {
+			$out = $this->hidden($name, array('value' => '', 'id' => false));
+		}
+		$options['value'] = $scope['value'];
+		return $out . $this->_render(__METHOD__, $template, compact('name', 'options'));
+	}
+
+	/**
+	 * Generates an HTML `<input type="radio" />` object.
+	 *
+	 * @param string $name The name of the field
+	 * @param array $options All options to be used when generating the radio `<input />` element:
+	 *              - `'checked'` _boolean_: Whether or not the field should be selected by default.
+	 *              - `'value'` _mixed_: if specified, it will be used as the 'value' html
+	 *                attribute. Defaults to `1`
+	 *              - Any other options specified are rendered as HTML attributes of the element.
+	 * @return string Returns a `<input />` tag with the given name and attributes
+	 */
+	public function radio($name, array $options = array()) {
+		$defaults = array('value' => '1');
+		$options += $defaults;
+		$default = $options['value'];
+
+		list($name, $options, $template) = $this->_defaults(__FUNCTION__, $name, $options);
+		list($scope, $options) = $this->_options($defaults, $options);
+
+		if (!isset($options['checked'])) {
+			$options['checked'] = ($this->binding($name)->data == $default);
+		}
+
+		$options['value'] = $scope['value'];
+		return $this->_render(__METHOD__, $template, compact('name', 'options'));
+	}
 }
 
 ?>
