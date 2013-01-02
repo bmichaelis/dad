@@ -24,7 +24,8 @@
       padding: 0 ms(0);
       color: $topBarLinkColor;
       display: block;
-      font-size: $topBarLinkSize;
+      font-family: "felt-tip-roman", sans-serif;
+      font-size: $topBarLinkSize + 2;
       font-weight: $topBarLinkWeight;
       height: $topBarHeight;
       line-height: $topBarHeight;
