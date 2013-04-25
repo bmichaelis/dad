@@ -1,60 +1,33 @@
 {
-    "hash": "0ff0ca75db7152d87fc1ad6a0f34cf30",
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "590a8d36d3411f557d516366c0d0ee15",
     "packages": [
         {
-            "name": "UnionOfRAD/lithium",
-            "version": "0.11",
+            "name": "bruensicke/li3_activities",
+            "version": "master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/UnionOfRAD/lithium.git",
-                "reference": "lithium-0.11"
+                "url": "git://github.com/bruensicke/li3_activities.git",
+                "reference": "master"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/UnionOfRAD/lithium/zipball/lithium-0.11",
-                "reference": "lithium-0.11",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.6",
-                "composer/installers": "dev-master"
-            },
-            "time": "2012-10-11 12:40:04",
             "type": "lithium-library",
-            "installation-source": "source",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Union of RAD",
-                    "homepage": "http://union-of-rad.org"
-                },
-                {
-                    "name": "The Lithium Community",
-                    "homepage": "http://github.com/UnionOfRAD/lithium/graphs/contributors"
-                }
-            ],
-            "description": "The core library of the Lithium PHP framework",
-            "homepage": "http://lithify.me",
-            "keywords": [
-                "framework",
-                "lithium"
-            ]
+            "time": "2013-03-12 11:00:18"
         },
         {
             "name": "composer/installers",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/composer/installers",
-                "reference": "84e373614874cf7687330fbd6ce305f4dd85d103"
+                "url": "https://github.com/composer/installers.git",
+                "reference": "6c23b07b3d07e392a1769110d2a910ab269aaa3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/composer/installers/archive/84e373614874cf7687330fbd6ce305f4dd85d103.zip",
-                "reference": "84e373614874cf7687330fbd6ce305f4dd85d103",
+                "url": "https://api.github.com/repos/composer/installers/zipball/6c23b07b3d07e392a1769110d2a910ab269aaa3d",
+                "reference": "6c23b07b3d07e392a1769110d2a910ab269aaa3d",
                 "shasum": ""
             },
             "replace": {
@@ -64,12 +37,13 @@
                 "composer/composer": "1.0.*@dev",
                 "phpunit/phpunit": "3.7.*"
             },
-            "time": "2012-12-27 17:50:09",
             "type": "composer-installer",
             "extra": {
-                "class": "Composer\\Installers\\Installer"
+                "class": "Composer\\Installers\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "Composer\\Installers\\": "src/"
@@ -90,49 +64,49 @@
             "description": "A multi-framework Composer library installer",
             "homepage": "http://composer.github.com/installers/",
             "keywords": [
-                "symfony",
-                "installer",
-                "zend",
-                "wordpress",
+                "TYPO3 Flow",
+                "TYPO3 Neos",
+                "agl",
                 "cakephp",
                 "codeigniter",
-                "fuelphp",
                 "drupal",
-                "lithium",
-                "li3",
+                "fuelphp",
+                "installer",
                 "joomla",
+                "kohana",
                 "laravel",
+                "li3",
+                "lithium",
+                "mako",
                 "phpbb",
                 "ppi",
                 "silverstripe",
-                "kohana",
-                "mako",
-                "TYPO3 Flow",
-                "TYPO3 Neos",
-                "agl"
-            ]
+                "symfony",
+                "wordpress",
+                "yii",
+                "zend"
+            ],
+            "time": "2013-04-22 16:11:49"
         },
         {
             "name": "daschl/li3_server",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/daschl/li3_server.git",
+                "url": "https://github.com/daschl/li3_server.git",
                 "reference": "1e46986de317fc3a28dd128ddff5f7705e99b082"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/daschl/li3_server/archive/1e46986de317fc3a28dd128ddff5f7705e99b082.zip",
+                "url": "https://api.github.com/repos/daschl/li3_server/zipball/1e46986de317fc3a28dd128ddff5f7705e99b082",
                 "reference": "1e46986de317fc3a28dd128ddff5f7705e99b082",
                 "shasum": ""
             },
             "require": {
-                "php": "5.4.*",
-                "composer/installers": "dev-master"
+                "composer/installers": "dev-master",
+                "php": "5.4.*"
             },
-            "time": "2012-08-10 06:25:54",
             "type": "lithium-library",
-            "installation-source": "source",
             "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
@@ -142,7 +116,8 @@
                 }
             ],
             "description": "Booting Lithium from the CLI.",
-            "homepage": "https://github.com/daschl/li3_server"
+            "homepage": "https://github.com/daschl/li3_server",
+            "time": "2012-08-10 06:25:54"
         },
         {
             "name": "fzaninotto/faker",
@@ -161,14 +136,12 @@
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2012-10-29 02:32:06",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.1.x-dev"
                 }
             },
-            "installation-source": "dist",
             "autoload": {
                 "psr-0": {
                     "Faker": "src/"
@@ -185,36 +158,35 @@
             ],
             "description": "Faker is a PHP library that generates fake data for you.",
             "keywords": [
+                "data",
                 "faker",
-                "fixtures",
-                "data"
-            ]
+                "fixtures"
+            ],
+            "time": "2012-10-29 02:32:06"
         },
         {
             "name": "mehlah/li3_populator",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mehlah/li3_populator",
+                "url": "https://github.com/mehlah/li3_populator.git",
                 "reference": "040cf182f7ffc006649b6254c5565682532b9cce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/mehlah/li3_populator/archive/040cf182f7ffc006649b6254c5565682532b9cce.zip",
+                "url": "https://api.github.com/repos/mehlah/li3_populator/zipball/040cf182f7ffc006649b6254c5565682532b9cce",
                 "reference": "040cf182f7ffc006649b6254c5565682532b9cce",
                 "shasum": ""
             },
             "require": {
-                "fzaninotto/faker": "1.1.*",
-                "composer/installers": "*"
+                "composer/installers": "*",
+                "fzaninotto/faker": "1.1.*"
             },
             "suggest": {
                 "UnionOfRAD/lithium": "Lithium is required for this plugin.",
                 "fzaninotto/faker": "Faker is a PHP library that generates fake data for you."
             },
-            "time": "2012-12-30 22:34:28",
             "type": "lithium-library",
-            "installation-source": "source",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -229,19 +201,33 @@
             "keywords": [
                 "faker",
                 "fixtures"
-            ]
+            ],
+            "time": "2012-12-30 22:34:28"
         },
         {
             "name": "mehlah/li3_rest",
-            "version": "master",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/mehlah/li3_rest.git",
-                "reference": "master"
+                "url": "https://github.com/mehlah/li3_rest.git",
+                "reference": "d047e3c2c7ed0c1e90e2d65ef1118be41f8bff2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mehlah/li3_rest/zipball/d047e3c2c7ed0c1e90e2d65ef1118be41f8bff2a",
+                "reference": "d047e3c2c7ed0c1e90e2d65ef1118be41f8bff2a",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*"
             },
             "type": "lithium-library",
-            "installation-source": "source",
-            "time": "2012-07-24 15:37:38"
+            "description": "This plugin allows you to quickly declare all of the common routes for a given resourceful controller.",
+            "support": {
+                "source": "https://github.com/mehlah/li3_rest/tree/master",
+                "issues": "https://github.com/mehlah/li3_rest/issues"
+            },
+            "time": "2013-01-13 20:33:59"
         },
         {
             "name": "mehlah/li3_time_helper",
@@ -260,9 +246,7 @@
             "require": {
                 "composer/installers": "*"
             },
-            "time": "2012-12-30 01:04:47",
             "type": "lithium-library",
-            "installation-source": "source",
             "authors": [
                 {
                     "name": "Mehdi Lahmam B.",
@@ -273,19 +257,20 @@
             "support": {
                 "source": "https://github.com/mehlah/li3_time_helper/tree/master",
                 "issues": "https://github.com/mehlah/li3_time_helper/issues"
-            }
+            },
+            "time": "2012-12-30 01:04:47"
         },
         {
             "name": "michaelhue/li3_flash_message",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/michaelhue/li3_flash_message.git",
+                "url": "https://github.com/michaelhue/li3_flash_message.git",
                 "reference": "618e44c69099b9df5cf154b646363c5ad619690b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/michaelhue/li3_flash_message/archive/618e44c69099b9df5cf154b646363c5ad619690b.zip",
+                "url": "https://api.github.com/repos/michaelhue/li3_flash_message/zipball/618e44c69099b9df5cf154b646363c5ad619690b",
                 "reference": "618e44c69099b9df5cf154b646363c5ad619690b",
                 "shasum": ""
             },
@@ -295,9 +280,7 @@
             "suggest": {
                 "UnionOfRAD/lithium": "Lithium is required for this plugin."
             },
-            "time": "2012-12-05 11:57:11",
             "type": "lithium-library",
-            "installation-source": "source",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -310,19 +293,20 @@
                     "role": "Developer"
                 }
             ],
-            "description": "The Flash Message plugin  for Lithium provides a straightforward interface for displaying status messages to the user."
+            "description": "The Flash Message plugin  for Lithium provides a straightforward interface for displaying status messages to the user.",
+            "time": "2012-12-05 11:57:11"
         },
         {
             "name": "michaelhue/li3_gravatar",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/michaelhue/li3_gravatar.git",
+                "url": "https://github.com/michaelhue/li3_gravatar.git",
                 "reference": "9f4aa211dbf03a91abd96cfc090506e04800bc0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/michaelhue/li3_gravatar/archive/9f4aa211dbf03a91abd96cfc090506e04800bc0e.zip",
+                "url": "https://api.github.com/repos/michaelhue/li3_gravatar/zipball/9f4aa211dbf03a91abd96cfc090506e04800bc0e",
                 "reference": "9f4aa211dbf03a91abd96cfc090506e04800bc0e",
                 "shasum": ""
             },
@@ -332,9 +316,7 @@
             "suggest": {
                 "UnionOfRAD/lithium": "Lithium is required for this plugin."
             },
-            "time": "2012-12-30 13:45:47",
             "type": "lithium-library",
-            "installation-source": "source",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -347,10 +329,54 @@
                     "role": "Developer"
                 }
             ],
-            "description": "The Lithium Gravatar plugin (Li3 Gravatar) allows you to interact with Gravatar (http://gravatar.com) images and profiles. It provides a helper for displaying Gravatars and a model for requesting user profiles from Gravatar."
+            "description": "The Lithium Gravatar plugin (Li3 Gravatar) allows you to interact with Gravatar (http://gravatar.com) images and profiles. It provides a helper for displaying Gravatars and a model for requesting user profiles from Gravatar.",
+            "time": "2012-12-30 13:45:47"
+        },
+        {
+            "name": "unionofrad/lithium",
+            "version": "0.11",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/UnionOfRAD/lithium.git",
+                "reference": "lithium-0.11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/UnionOfRAD/lithium/zipball/lithium-0.11",
+                "reference": "lithium-0.11",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "dev-master",
+                "php": ">=5.3.6"
+            },
+            "type": "lithium-library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Union of RAD",
+                    "homepage": "http://union-of-rad.org"
+                },
+                {
+                    "name": "The Lithium Community",
+                    "homepage": "http://github.com/UnionOfRAD/lithium/graphs/contributors"
+                }
+            ],
+            "description": "The core library of the Lithium PHP framework",
+            "homepage": "http://lithify.me",
+            "keywords": [
+                "framework",
+                "lithium"
+            ],
+            "time": "2012-10-11 12:40:04"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+
+    ],
     "aliases": [
 
     ],
@@ -362,6 +388,13 @@
         "mehlah/li3_rest": 20,
         "mehlah/li3_time_helper": 20,
         "mehlah/li3_populator": 20,
+        "bruensicke/li3_activities": 20,
         "composer/installers": 20
-    }
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
 }
