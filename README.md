@@ -11,7 +11,7 @@ Oh! And Rock it [Day After Day](http://www.youtube.com/watch?v=XonFZjuyc6E) or S
 
 1. If you're **brand new to Lithium**, please see [**DAD as Your First Lithium App**](). This beginner's guide is also adequate for developers ready to sink their teeth quickly; it's the easiest way to hack on DAD!
 
-2. Once you have DAD up and running, be sure to load the **developer** seed data by running `li3 db populate`.
+2. Once you have DAD up and running, hit `/signup/` to create an account and sign in. You can load the **developer** seed data by running `li3 db populate`.
 
 3. If you're familiar with how Lithium works and are comfortable setting up your own environment, do [What the Fuck You Want](http://en.wikipedia.org/wiki/WTFPL) with the source code.
 
