@@ -2,19 +2,6 @@
     "name": "craftsmen/dad",
     "repositories": [
         {
-            "type": "package",
-            "package": {
-                "name": "bruensicke/li3_activities",
-                "version": "master",
-                "source": {
-                    "url": "git://github.com/bruensicke/li3_activities.git",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "type": "lithium-library"
-            }
-        },
-        {
             "type": "vcs",
             "url": "https://github.com/mehlah/li3_rest.git"
         },
