@@ -37,7 +37,7 @@ class Discussions extends \dad\extensions\data\BaseModel {
 
 		$message = new Entity([
 			'data' => $message_data[0],
-			'model' => __CLASS__
+			'model' => 'dad\models\Messages'
 		]);
 		// Sync the Entity to be flagged as existing
 		$message->sync($message->id);
