@@ -45,40 +45,6 @@ class Discussions extends \dad\extensions\data\BaseModel {
 		return $message;
 	}
 
-	public function create_message($discussion, array $data = [], array $options = []) {
-		return Messages::create($data, $options);
-	}
-
-	public function push_message($discussion, $message) {
-		$self = static::_object();
-
-		$defaults = [
-			'id' => String::uuid(),
-			'created_at' => new \MongoDate(),
-			'updated_at' => new \MongoDate()
-		];
-		$message_data = $message->data() + $defaults;
-		$params = compact('discussion', 'message_data');
-
-		$filter = function($self, $params) {
-			$discussion = $params['discussion'];
-			$message_data = $params['message_data'];
-
-			$query = ['$push' => ['messages' => $message_data]];
-			$conditions = ['_id' => $discussion->_id];
-
-			return Discussions::update($query, $conditions);
-		};
-
-		return static::_filter(__FUNCTION__, $params, $filter);
-	}
-
-	public function pull_message($discussion, $message) {
-		$query = ['$pull' => ['messages' => ['id' => $message->id]]];
-		$conditions = ['_id' => $discussion->_id];
-		return Discussions::update($query, $conditions);
-	}
-
 	public function project($discussion) {
 		return Projects::first((string) $discussion->project_id);
 	}
