@@ -8,12 +8,16 @@ use dad\tests\factories\People;
 
 class DiscussionsTest extends \lithium\test\Unit {
 
-	public function setUp() {}
-
 	public function tearDown() {
 		Discussions::remove();
 		Projects::remove();
 		People::remove();
+	}
+
+	public function test_schema_inheritence() {
+		$schema = Discussions::schema();
+		$this->assertNotNull($schema->fields('created_at'));
+		$this->assertNotNull($schema->fields('updated_at'));
 	}
 
 	public function test_project_marked_updated_after_discussion_save_or_delete() {

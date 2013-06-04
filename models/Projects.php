@@ -13,9 +13,7 @@ class Projects extends \dad\extensions\data\BaseModel {
 		'creator'      => ['type' => 'object'],
 		'creator.id'   => ['type' => 'id'],
 		'creator.name' => ['type' => 'string'],
-		'archived'     => ['type' => 'boolean', 'default' => false],
-		'created_at'   => ['type' => 'date'],
-		'updated_at'   => ['type' => 'date']
+		'archived'     => ['type' => 'boolean', 'default' => false]
 	];
 
 	public $validates = [

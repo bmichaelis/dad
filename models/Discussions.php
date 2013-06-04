@@ -20,9 +20,7 @@ class Discussions extends \dad\extensions\data\BaseModel {
 		'creator'      => ['type' => 'object'],
 		'creator.id'   => ['type' => 'id'],
 		'creator.name' => ['type' => 'string'],
-		'messages'     => ['type' => 'object', 'array' => true],
-		'created_at'   => ['type' => 'date'],
-		'updated_at'   => ['type' => 'date']
+		'messages'     => ['type' => 'object', 'array' => true]
 	];
 
 	public function messages($discussion, array $options = []) {

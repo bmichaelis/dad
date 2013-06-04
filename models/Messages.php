@@ -18,9 +18,7 @@ class Messages extends \dad\extensions\data\BaseModel {
 		'content'      => ['type' => 'string'],
 		'creator'      => ['type' => 'object'],
 		'creator.id'   => ['type' => 'id'],
-		'creator.name' => ['type' => 'string'],
-		'created_at'   => ['type' => 'date'],
-		'updated_at'   => ['type' => 'date']
+		'creator.name' => ['type' => 'string']
 	];
 
 	public $validates = [

@@ -6,27 +6,24 @@ use dad\tests\factories\Messages;
 
 class MessagesTest extends \lithium\test\Unit {
 
-	public function setUp() {}
-
-	public function tearDown() {}
-
-	public function test_create() {
-		$message = Messages::create();
-		$this->assertTrue(!empty($message->content));
-		$this->assertTrue($message->creator->id instanceof \MongoId);
-		$this->assertEqual('Mehdi', $message->creator->name);
-	}
-
-	public function test_validates() {
+	public function test_has_valid_factory() {
 		$message = Messages::create();
 		$this->assertTrue($message->validates());
+	}
 
+	public function test_invalid_without_content() {
 		$message = Messages::create(['content' => null]);
 		$expected = ['content' => ['Cowardly refusing to save an empty message.']];
 		$this->assertFalse($message->validates());
 		$errors = $message->errors();
 		$this->assertTrue(!empty($errors));
 		$this->assertEqual($expected, $errors);
+	}
+
+	public function test_schema_inheritence() {
+		$schema = Messages::schema();
+		$this->assertNotNull($schema->fields('created_at'));
+		$this->assertNotNull($schema->fields('updated_at'));
 	}
 }
 

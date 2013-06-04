@@ -6,14 +6,12 @@ use dad\tests\factories\People;
 
 class PeopleTest extends \lithium\test\Unit {
 
-	public function setUp() {}
-
-	public function tearDown() {}
-
-	public function test_validates() {
+	public function test_has_valid_factory() {
 		$person = People::create();
 		$this->assertTrue($person->validates());
+	}
 
+	public function test_invalid() {
 		$person = People::create([
 			'name' => null,
 			'email_address' => null,
@@ -28,7 +26,9 @@ class PeopleTest extends \lithium\test\Unit {
 		$errors = $person->errors();
 		$this->assertTrue(!empty($errors));
 		$this->assertEqual($expected, $errors);
+	}
 
+	public function test_invalid_email() {
 		$person = People::create([
 			'email_address' => 'invalid@emailadress',
 		]);
@@ -38,6 +38,12 @@ class PeopleTest extends \lithium\test\Unit {
 		$this->assertFalse($person->validates());
 		$errors = $person->errors();
 		$this->assertEqual($expected, $errors);
+	}
+
+	public function test_schema_inheritence() {
+		$schema = People::schema();
+		$this->assertNotNull($schema->fields('created_at'));
+		$this->assertNotNull($schema->fields('updated_at'));
 	}
 }
 
