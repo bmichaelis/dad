@@ -3,12 +3,12 @@
 namespace dad\tests\cases\extensions\helper;
 
 use dad\extensions\helper\Text;
-use lithium\tests\mocks\template\helper\MockHtmlRenderer;
+use lithium\tests\mocks\template\MockRenderer;
 
 class TextTest extends \lithium\test\Unit {
 
 	public function setUp() {
-		$this->text = new Text(array('context' => new MockHtmlRenderer()));
+		$this->text = new Text(array('context' => new MockRenderer()));
 	}
 
 	public function tearDown() {

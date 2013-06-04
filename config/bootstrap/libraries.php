@@ -59,7 +59,7 @@ define('LITHIUM_APP_PATH', dirname(dirname(__DIR__)));
  * directory as your application.  If you use the same libraries in multiple applications, you can
  * set this to a shared path on your server.
  */
-define('LITHIUM_LIBRARY_PATH', LITHIUM_APP_PATH . '/libraries');
+define('LITHIUM_LIBRARY_PATH', LITHIUM_APP_PATH . '/libraries/unionofrad/lithium');
 
 /**
  * Locate and load Lithium core library files.  Throws a fatal error if the core can't be found.
@@ -120,10 +120,14 @@ Libraries::add('dad', array('default' => true));
 Libraries::add('li3_rest');
 Libraries::add('li3_flash_message');
 Libraries::add('li3_time_helper');
-Libraries::add('li3_populator');
 Libraries::add('li3_gravatar');
 Libraries::add('li3_activities');
 
+Libraries::add('faker', array(
+	'path' => LITHIUM_APP_PATH . '/libraries/fzaninotto/faker',
+	'bootstrap' => 'src/autoload.php'
+));
+Libraries::add('li3_populator');
 Libraries::add('li3_server');
 
 ?>

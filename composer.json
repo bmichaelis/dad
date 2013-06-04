@@ -1,5 +1,9 @@
 {
     "name": "craftsmen/dad",
+    "config": {
+        "vendor-dir": "libraries",
+        "bin-dir": "bin"
+    },
     "repositories": [
         {
             "type": "vcs",
@@ -11,7 +15,7 @@
         }
     ],
     "require": {
-        "unionofrad/lithium": "0.11",
+        "unionofrad/lithium": "dev-master",
         "daschl/li3_server": "dev-master",
         "michaelhue/li3_gravatar": "dev-master",
         "michaelhue/li3_flash_message": "dev-master",

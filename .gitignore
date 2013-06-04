@@ -1,3 +1,4 @@
-/resources/tmp/*
-/vendor
-/libraries
+resources/tmp/*
+vendor
+libraries
+bin

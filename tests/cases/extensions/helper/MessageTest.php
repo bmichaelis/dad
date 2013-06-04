@@ -3,7 +3,7 @@
 namespace dad\tests\cases\extensions\helper;
 
 use dad\extensions\helper\Message;
-use lithium\tests\mocks\template\helper\MockHtmlRenderer;
+use lithium\tests\mocks\template\MockRenderer;
 use dad\tests\factories\Messages;
 
 class MessageTest extends \lithium\test\Unit {
@@ -11,7 +11,7 @@ class MessageTest extends \lithium\test\Unit {
 	public $message = null;
 
 	public function setUp() {
-		$this->message = new Message(array('context' => new MockHtmlRenderer()));
+		$this->message = new Message(array('context' => new MockRenderer()));
 	}
 
 	public function testUpdatedAt() {

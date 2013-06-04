@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0d53c06271f75356cde3bc2849c8d12a",
+    "hash": "e5e3565882c9e9aeeee42177172d72b6",
     "packages": [
         {
             "name": "bruensicke/li3_activities",
@@ -54,12 +54,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "6c23b07b3d07e392a1769110d2a910ab269aaa3d"
+                "reference": "04ae2b42384ed2f8d40263229530cabbaff3f930"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/6c23b07b3d07e392a1769110d2a910ab269aaa3d",
-                "reference": "6c23b07b3d07e392a1769110d2a910ab269aaa3d",
+                "url": "https://api.github.com/repos/composer/installers/zipball/04ae2b42384ed2f8d40263229530cabbaff3f930",
+                "reference": "04ae2b42384ed2f8d40263229530cabbaff3f930",
                 "shasum": ""
             },
             "replace": {
@@ -115,10 +115,9 @@
                 "silverstripe",
                 "symfony",
                 "wordpress",
-                "yii",
                 "zend"
             ],
-            "time": "2013-04-22 16:11:49"
+            "time": "2013-05-30 16:23:29"
         },
         {
             "name": "daschl/li3_server",
@@ -334,12 +333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/michaelhue/li3_gravatar.git",
-                "reference": "9f4aa211dbf03a91abd96cfc090506e04800bc0e"
+                "reference": "950e945410d88ce34bc51498717846a40d8d8c00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/michaelhue/li3_gravatar/zipball/9f4aa211dbf03a91abd96cfc090506e04800bc0e",
-                "reference": "9f4aa211dbf03a91abd96cfc090506e04800bc0e",
+                "url": "https://api.github.com/repos/michaelhue/li3_gravatar/zipball/950e945410d88ce34bc51498717846a40d8d8c00",
+                "reference": "950e945410d88ce34bc51498717846a40d8d8c00",
                 "shasum": ""
             },
             "require": {
@@ -362,27 +361,35 @@
                 }
             ],
             "description": "The Lithium Gravatar plugin (Li3 Gravatar) allows you to interact with Gravatar (http://gravatar.com) images and profiles. It provides a helper for displaying Gravatars and a model for requesting user profiles from Gravatar.",
-            "time": "2012-12-30 13:45:47"
+            "time": "2013-06-01 09:55:21"
         },
         {
             "name": "unionofrad/lithium",
-            "version": "0.11",
+            "version": "dev-master",
+            "target-dir": "lithium",
             "source": {
                 "type": "git",
-                "url": "git://github.com/UnionOfRAD/lithium.git",
-                "reference": "lithium-0.11"
+                "url": "https://github.com/UnionOfRAD/lithium.git",
+                "reference": "f0b19ab410257a6411bf8b6990737e4518faf827"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/UnionOfRAD/lithium/zipball/lithium-0.11",
-                "reference": "lithium-0.11",
+                "url": "https://api.github.com/repos/UnionOfRAD/lithium/zipball/f0b19ab410257a6411bf8b6990737e4518faf827",
+                "reference": "f0b19ab410257a6411bf8b6990737e4518faf827",
                 "shasum": ""
             },
             "require": {
-                "composer/installers": "dev-master",
                 "php": ">=5.3.6"
             },
-            "type": "lithium-library",
+            "bin": [
+                "console/li3"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "lithium": ""
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
@@ -403,7 +410,7 @@
                 "framework",
                 "lithium"
             ],
-            "time": "2012-10-11 12:40:04"
+            "time": "2013-05-21 13:12:39"
         }
     ],
     "packages-dev": [
@@ -414,6 +421,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "unionofrad/lithium": 20,
         "daschl/li3_server": 20,
         "michaelhue/li3_gravatar": 20,
         "michaelhue/li3_flash_message": 20,

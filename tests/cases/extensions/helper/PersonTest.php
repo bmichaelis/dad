@@ -3,12 +3,12 @@
 namespace dad\tests\cases\extensions\helper;
 
 use dad\extensions\helper\Person;
-use lithium\tests\mocks\template\helper\MockHtmlRenderer;
+use lithium\tests\mocks\template\MockRenderer;
 
 class PersonTest extends \lithium\test\Unit {
 
 	public function setUp() {
-		$this->person = new Person(array('context' => new MockHtmlRenderer()));
+		$this->person = new Person(array('context' => new MockRenderer()));
 	}
 
 	public function tearDown() {

@@ -45,8 +45,9 @@
 		use \lithium\net\http\Router;
 		$new_message_path = Router::match([
 			'Messages::create',
-			'project_id' => $project->_id, 'discussion_id' => $discussion->_id
-			]);
+			'project_id' => $project->_id, 'discussion_id' => $discussion->_id,
+			'http:method' => 'POST'
+		]);
 
 		echo $this->element->render('add_message', compact('new_message_path'));
 		?>

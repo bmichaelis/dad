@@ -9,9 +9,9 @@ class Discussion extends \lithium\template\Helper {
 
 	public function path($discussion, $project) {
 		if ($discussion->exists()) {
-			$path = Router::match(['Discussions::update', 'project_id' => $project->_id, 'id' => $discussion->_id]);
+			$path = Router::match(['Discussions::update', 'project_id' => $project->_id, 'id' => $discussion->_id, 'http:method' => 'PUT']);
 		} else {
-			$path = Router::match(['Discussions::create', 'project_id' => $project->_id]);
+			$path = Router::match(['Discussions::create', 'project_id' => $project->_id, 'http:method' => 'POST']);
 		}
 
 		return $path;
