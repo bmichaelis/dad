@@ -1,4 +1,4 @@
-## DAD - Day After Day
+## DAD - Day After Day [![Build Status](https://travis-ci.org/craftsmen/dad.png?branch=refactor)](https://travis-ci.org/craftsmen/dad)
 
 DAD is not about tons of stats, charts, numbers, and graphs — it’s about two-way communication, conversation, simple scheduling,
 and to-do lists so you don’t forget the little things.
